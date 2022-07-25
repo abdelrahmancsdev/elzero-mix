@@ -1,0 +1,20 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: sans-serif;
+}
+ul {
+  list-style-type: none;
+}
+.container {
+  padding: 0px 20px;
+  margin: auto;
+  width: 100%;
+  max-width: 1200px;
+}
