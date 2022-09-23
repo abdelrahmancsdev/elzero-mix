@@ -1,16 +1,33 @@
+@use "../abstracts/variables" as v;
+
 * {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
 }
+:root {
+  --main-color: #2196f3;
+  --text-color: #111;
+  --space: 20px;
+  --sec-space: 100px;
+  --trans: 0.3s linear;
+}
 html {
   scroll-behavior: smooth;
+  color: v.$main-color;
 }
 body {
   font-family: sans-serif;
 }
 ul {
   list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+button {
+  border: none;
+  background-color: transparent;
 }
 .container {
   padding: 0px 20px;

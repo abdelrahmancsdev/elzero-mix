@@ -1,0 +1,245 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+@import url("https://fonts.googleapis.com/css2?family=Merienda+One&display=swap");
+header {
+  height: 70px;
+  position: fixed;
+  background-color: #fff;
+  width: 100%;
+  box-shadow: 0px 0px 10px #ccc;
+  z-index: 999;
+  .container {
+    @include m.flex(center, space-between);
+    position: relative;
+    background-color: #fff;
+    .logo {
+      h1 {
+        a {
+          color: v.$main-color;
+          font-size: 26px;
+          padding: 0px v.$space;
+          font-family: "Merienda One", sans-serif;
+        }
+      }
+    }
+    nav {
+      .nav-menu {
+        @include m.flex(center, center);
+        > li {
+          > a {
+            font-size: 18px;
+            padding: 0px v.$space;
+            height: 70px;
+            color: v.$text-color;
+            @include m.flex(center, null);
+            gap: 10px;
+            position: relative;
+            transition: v.$trans;
+            svg {
+              width: v.$space;
+              height: v.$space;
+              transition: v.$trans;
+            }
+            &.sub-menu.active {
+              svg {
+                transform: rotateZ(180deg);
+              }
+            }
+            &::before {
+              content: "";
+              height: 4px;
+              width: 100%;
+              @include m.line-hover(transparent, v.$main-color);
+              position: absolute;
+              top: 0px;
+              left: 0px;
+              transition: v.$trans;
+            }
+            &:hover,
+            &.active {
+              background-color: #f9f9f9;
+              color: v.$main-color;
+              &::before {
+                background-position: left;
+              }
+              svg {
+                fill: v.$main-color;
+              }
+            }
+          }
+        }
+      }
+      .menu-bar {
+        @include m.flex(center, center);
+        display: none;
+        padding: 0px v.$space;
+        height: 70px;
+        color: v.$text-color;
+        flex-direction: column;
+        gap: 5px;
+        .bar1,
+        .bar2,
+        .bar3 {
+          width: 30px;
+          height: 4px;
+          background-color: v.$text-color;
+          transition: v.$trans;
+        }
+        &.active {
+          .bar1 {
+            transform: translateY(8px) rotate(-45deg);
+          }
+          .bar2 {
+            opacity: 0;
+          }
+          .bar3 {
+            transform: translateY(-10px) rotate(45deg);
+          }
+        }
+      }
+      .mega-menu {
+        position: fixed;
+        left: 50%;
+        top: 71px;
+        transform: translateY(-105%) translateX(-50%);
+        overflow: hidden auto;
+        width: 100%;
+        @include m.grid(center, center);
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: calc(v.$space * 2);
+        background-color: #fff;
+        padding: v.$space;
+        z-index: -1;
+        transition: 0.5s linear;
+        opacity: 0;
+        border-bottom: 3px solid v.$main-color;
+        &.active {
+          transform: translateY(0px) translateX(-50%);
+          opacity: 1;
+        }
+        img {
+          transition: 0.4s linear;
+          width: 100%;
+          &:hover {
+            filter: hue-rotate(180deg);
+          }
+        }
+        ul {
+          width: 100%;
+          &.mega-list0 {
+            display: none;
+          }
+          li {
+            a {
+              display: block;
+              padding: 15px;
+              font-size: 18px;
+              // font-weight: bold;
+              color: v.$main-color;
+              @include m.line-hover(transparent, #f9f9f9);
+              transition: v.$trans;
+              @include m.flex(center, null);
+              gap: 10px;
+              &:hover {
+                background-position: left;
+              }
+              svg {
+                width: v.$space;
+                height: v.$space;
+                fill: v.$main-color;
+                &.timeline-icon {
+                  transform: rotateZ(-90deg);
+                }
+              }
+            }
+            &:not(:last-of-type) {
+              a {
+                border-bottom: 1px solid #ddd;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 990px) {
+  header {
+    .container {
+      nav {
+        .mega-menu {
+          grid-template-columns: 3fr 2fr 2fr;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 870px) {
+  header {
+    .container {
+      nav {
+        .mega-menu {
+          grid-template-columns: 1fr 1fr;
+          img {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  header {
+    .container {
+      nav {
+        .nav-menu {
+          display: none;
+        }
+        .menu-bar {
+          display: flex;
+        }
+        .mega-menu {
+          bottom: 0px;
+          grid-template-columns: 1fr;
+          transform: translateY(0px) translateX(100%);
+          min-width: 50%;
+          max-width: 100%;
+          width: 300px;
+          gap: 0px;
+          left: auto;
+          right: 0px;
+          &.active {
+            transform: translateY(0px) translateX(0px);
+          }
+          ul {
+            &.mega-list0 {
+              display: block;
+            }
+          }
+          .mega-list0,
+          .mega-list1 {
+            border-bottom: 1px solid #ddd;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-height: 320px) {
+  header {
+    .container {
+      nav {
+        .mega-menu {
+          bottom: 0px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 300px) {
+  header {
+    .container:first-child {
+      padding: 0px;
+    }
+  }
+}
