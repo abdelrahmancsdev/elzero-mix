@@ -8,13 +8,13 @@
 :root {
   --main-color: #2196f3;
   --text-color: #111;
+  --sec-bg: #ececec;
   --space: 20px;
   --sec-space: 100px;
   --trans: 0.3s linear;
 }
 html {
   scroll-behavior: smooth;
-  color: v.$main-color;
 }
 body {
   font-family: sans-serif;

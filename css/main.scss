@@ -2,9 +2,4 @@
 @use "abstracts/mixins" as m;
 @use "core/global";
 @use "layout/header";
-main {
-  color: v.$main-color;
-  @include m.flex(center, center);
-  height: 200vh;
-  background-color: #ececec;
-}
+@use "sections/landing";
