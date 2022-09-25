@@ -54,7 +54,7 @@
       @include m.center-pos(h);
       //   padding: v.$space;
       cursor: pointer;
-      animation: landing-bouncing 1.5s linear infinite;
+      animation: landing-arrow 1.5s linear infinite;
     }
   }
 }
@@ -99,7 +99,7 @@
     transform: translateY(0px);
   }
 }
-@keyframes landing-bouncing {
+@keyframes landing-arrow {
   0%,
   10%,
   20%,

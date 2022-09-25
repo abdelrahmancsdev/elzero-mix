@@ -1,14 +1,23 @@
 let subMenu = document.querySelector(".sub-menu");
 let megaMenu = document.querySelector(".mega-menu");
 let menuBar = document.querySelector(".menu-bar");
+let navLinks = document.querySelectorAll("nav a:not(.sub-menu)");
+function toggleActive() {
+  subMenu.classList.toggle("active");
+  megaMenu.classList.toggle("active");
+  menuBar.classList.toggle("active");
+}
 subMenu.onclick = (e) => {
   e.preventDefault();
-  subMenu.classList.toggle("active");
-  megaMenu.classList.toggle("active");
-  menuBar.classList.toggle("active");
+  toggleActive();
 };
 menuBar.onclick = (e) => {
-  menuBar.classList.toggle("active");
-  megaMenu.classList.toggle("active");
-  subMenu.classList.toggle("active");
+  toggleActive();
 };
+navLinks.forEach((link) => {
+  link.onclick = () => {
+    if (megaMenu.classList.contains("active")) {
+      toggleActive();
+    }
+  };
+});

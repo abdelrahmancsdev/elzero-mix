@@ -20,7 +20,7 @@ html {
 }
 
 body {
-  font-family: sans-serif;
+  font-family: "Cairo", sans-serif;
 }
 
 ul {
@@ -106,8 +106,8 @@ header .container nav .nav-menu > li > a svg {
   transition: var(--trans);
 }
 header .container nav .nav-menu > li > a.sub-menu.active svg {
-  -webkit-transform: rotateZ(180deg);
-          transform: rotateZ(180deg);
+  -webkit-transform: rotateZ(-180deg);
+          transform: rotateZ(-180deg);
 }
 header .container nav .nav-menu > li > a::before {
   content: "";
@@ -369,8 +369,8 @@ header .container nav .mega-menu .mega-list1 {
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   cursor: pointer;
-  -webkit-animation: landing-bouncing 1.5s linear infinite;
-          animation: landing-bouncing 1.5s linear infinite;
+  -webkit-animation: landing-arrow 1.5s linear infinite;
+          animation: landing-arrow 1.5s linear infinite;
 }
 
 @media (max-width: 768px) {
@@ -429,7 +429,7 @@ header .container nav .mega-menu .mega-list1 {
             transform: translateY(0px);
   }
 }
-@-webkit-keyframes landing-bouncing {
+@-webkit-keyframes landing-arrow {
   0%, 10%, 20%, 50%, 80%, 100% {
     -webkit-transform: translateY(0);
             transform: translateY(0);
@@ -439,7 +439,7 @@ header .container nav .mega-menu .mega-list1 {
             transform: translateY(-15px);
   }
 }
-@keyframes landing-bouncing {
+@keyframes landing-arrow {
   0%, 10%, 20%, 50%, 80%, 100% {
     -webkit-transform: translateY(0);
             transform: translateY(0);
