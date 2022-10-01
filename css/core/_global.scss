@@ -35,3 +35,6 @@ button {
   width: 100%;
   max-width: 1200px;
 }
+section:not(#landing) {
+  padding: v.$sec-space 0px;
+}

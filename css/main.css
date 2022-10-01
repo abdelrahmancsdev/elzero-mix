@@ -43,6 +43,10 @@ button {
   max-width: 1200px;
 }
 
+section:not(#landing) {
+  padding: var(--sec-space) 0px;
+}
+
 header {
   height: 70px;
   position: fixed;
@@ -448,4 +452,197 @@ header .container nav .mega-menu .mega-list1 {
     -webkit-transform: translateY(-15px);
             transform: translateY(-15px);
   }
+}
+.main-heading {
+  text-transform: uppercase;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0px auto var(--sec-space);
+  position: relative;
+  z-index: 1;
+  font-size: 32px;
+  padding: 10px 20px;
+  line-height: 1.25;
+  border: 3px solid #000;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-transition: 0.25s 0.25s linear;
+  transition: 0.25s 0.25s linear;
+}
+.main-heading::before, .main-heading::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-color: var(--main-color);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-transition: 0.5s linear;
+  transition: 0.5s linear;
+}
+.main-heading::before {
+  right: -30px;
+  -webkit-animation: back-left 0.5s linear both;
+          animation: back-left 0.5s linear both;
+}
+.main-heading::after {
+  left: -30px;
+  -webkit-animation: back-right 0.5s linear both;
+          animation: back-right 0.5s linear both;
+}
+.main-heading:hover {
+  color: #fff;
+  border-color: var(--main-color);
+}
+.main-heading:hover::before {
+  -webkit-animation: fill-left 0.5s linear both;
+          animation: fill-left 0.5s linear both;
+  z-index: -1;
+}
+.main-heading:hover::after {
+  -webkit-animation: fill-right 0.5s linear both;
+          animation: fill-right 0.5s linear both;
+  z-index: -1;
+}
+
+@-webkit-keyframes fill-left {
+  50% {
+    right: 0px;
+    width: 12px;
+    height: 12px;
+  }
+  100% {
+    right: 0px;
+    border-radius: 0;
+    width: 51%;
+    height: 100%;
+  }
+}
+
+@keyframes fill-left {
+  50% {
+    right: 0px;
+    width: 12px;
+    height: 12px;
+  }
+  100% {
+    right: 0px;
+    border-radius: 0;
+    width: 51%;
+    height: 100%;
+  }
+}
+@-webkit-keyframes fill-right {
+  50% {
+    left: 0px;
+    width: 12px;
+    height: 12px;
+  }
+  100% {
+    left: 0px;
+    border-radius: 0;
+    width: 51%;
+    height: 100%;
+  }
+}
+@keyframes fill-right {
+  50% {
+    left: 0px;
+    width: 12px;
+    height: 12px;
+  }
+  100% {
+    left: 0px;
+    border-radius: 0;
+    width: 51%;
+    height: 100%;
+  }
+}
+@-webkit-keyframes back-left {
+  0% {
+    right: 0px;
+    border-radius: 0;
+    width: 51%;
+    height: 100%;
+    z-index: -1;
+  }
+  50% {
+    right: 0px;
+    width: 12px;
+    height: 12px;
+  }
+  100% {
+    right: -30px;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+  }
+}
+@keyframes back-left {
+  0% {
+    right: 0px;
+    border-radius: 0;
+    width: 51%;
+    height: 100%;
+    z-index: -1;
+  }
+  50% {
+    right: 0px;
+    width: 12px;
+    height: 12px;
+  }
+  100% {
+    right: -30px;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+  }
+}
+@-webkit-keyframes back-right {
+  0% {
+    left: 0px;
+    border-radius: 0;
+    width: 51%;
+    height: 100%;
+    z-index: -1;
+  }
+  50% {
+    left: 0px;
+    width: 12px;
+    height: 12px;
+  }
+  100% {
+    left: -30px;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+  }
+}
+@keyframes back-right {
+  0% {
+    left: 0px;
+    border-radius: 0;
+    width: 51%;
+    height: 100%;
+    z-index: -1;
+  }
+  50% {
+    left: 0px;
+    width: 12px;
+    height: 12px;
+  }
+  100% {
+    left: -30px;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+  }
+}
+#about {
+  height: 100vh;
 }/*# sourceMappingURL=main.css.map */
