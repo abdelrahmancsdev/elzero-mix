@@ -1,4 +1,43 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
 @use "../components/section-heading";
 #about {
-  height: 100vh;
+  .container {
+    gap: 100px;
+    @include m.flex(center, center);
+    .image {
+      img {
+        width: 100%;
+      }
+    }
+    p {
+      width: 50%;
+      color: #555;
+    }
+  }
+}
+@media (max-width: 768px) {
+  #about {
+    .container {
+      flex-wrap: wrap;
+      gap: 0px;
+      .image {
+        margin-top: -30px;
+      }
+      p {
+        width: 100%;
+        padding: 0px 20px;
+        text-align: center;
+      }
+    }
+  }
+}
+@media (max-width: 400px) {
+  #about {
+    .container {
+      p {
+        padding: 0px;
+      }
+    }
+  }
 }

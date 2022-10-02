@@ -4,7 +4,7 @@
 .main-heading {
   text-transform: uppercase;
   width: fit-content;
-  margin: 0px auto v.$sec-space;
+  margin: 0px auto 50px;
   position: relative;
   z-index: 1;
   font-size: 32px;
@@ -46,7 +46,11 @@
     z-index: -1;
   }
 }
-
+@media (max-width: 375px) {
+  .main-heading {
+    font-size: 24px;
+  }
+}
 @keyframes fill-left {
   50% {
     right: 0px;
