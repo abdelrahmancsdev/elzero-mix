@@ -17,9 +17,8 @@ header {
       h1 {
         a {
           color: v.$main-color;
-          font-size: 26px;
+          font-size: 30px;
           padding: 0px v.$space;
-          font-family: "Merienda One", sans-serif;
         }
       }
     }
@@ -80,8 +79,7 @@ header {
         gap: 5px;
         cursor: pointer;
         .bar1,
-        .bar2,
-        .bar3 {
+        .bar2 {
           width: 30px;
           height: 4px;
           background-color: v.$text-color;
@@ -89,20 +87,18 @@ header {
         }
         &.active {
           .bar1 {
-            transform: translateY(8px) rotate(-45deg);
+            transform: translateY(4px) rotate(-45deg);
           }
           .bar2 {
-            opacity: 0;
-          }
-          .bar3 {
-            transform: translateY(-10px) rotate(45deg);
+            transform: translateY(-5px) rotate(45deg);
           }
         }
       }
       .mega-menu {
         position: fixed;
         left: 50%;
-        top: 71px;
+        top: 70px;
+        border-top: 1px solid #ccc;
         transform: translateY(-105%) translateX(-50%);
         overflow: hidden auto;
         width: 100%;
@@ -240,6 +236,15 @@ header {
 }
 @media (max-width: 300px) {
   header {
+    .container {
+      .logo {
+        h1 {
+          a {
+            font-size: 26px;
+          }
+        }
+      }
+    }
     .container:first-child {
       padding: 0px;
     }
