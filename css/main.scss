@@ -1,6 +1,9 @@
 @use "abstracts/variables" as v;
 @use "abstracts/mixins" as m;
 @use "core/global";
+@use "components/section-heading";
+@use "components/seperator";
 @use "layout/header";
 @use "sections/landing";
 @use "sections/about";
+@use "sections/gallery";

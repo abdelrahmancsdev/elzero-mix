@@ -1,6 +1,5 @@
 @use "../abstracts/variables" as v;
 @use "../abstracts/mixins" as m;
-@use "../components/section-heading";
 #about {
   .container {
     gap: 100px;
@@ -10,9 +9,12 @@
         width: 100%;
       }
     }
-    p {
+    .text {
       width: 50%;
       color: #555;
+      p:first-child {
+        margin-bottom: 15px;
+      }
     }
   }
 }
