@@ -3,4 +3,53 @@
 
 #gallery {
   background-color: v.$sec-bg;
+  .container {
+    @include m.grid(center, center);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    .image-box {
+      padding: 15px;
+      background-color: #fff;
+      box-shadow: 0px 10px 20px 0px rgb(0 0 0 / 20%);
+      .image {
+        overflow: hidden;
+        position: relative;
+
+        &::before {
+          content: "";
+          background-color: rgb(255 255 255 / 20%);
+          position: absolute;
+          @include m.center-pos(a);
+          width: 0px;
+          height: 0px;
+          opacity: 0;
+          z-index: -1;
+        }
+        &:hover::before {
+          z-index: 1;
+          // opacity: 1;
+          animation: flash-hover 0.5s linear;
+        }
+        img {
+          width: 100%;
+          transition: v.$trans;
+        }
+        &:hover img {
+          transform: rotate(5deg) scale(1.1);
+        }
+      }
+    }
+  }
+}
+
+@keyframes flash-hover {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    width: 200%;
+    height: 200%;
+  }
 }
