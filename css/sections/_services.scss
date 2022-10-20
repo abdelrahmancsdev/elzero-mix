@@ -1,0 +1,76 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+@use "../abstracts/placeholders";
+
+#services {
+  background-color: v.$sec-bg;
+  .container {
+    @extend %grid3;
+    .serv {
+      counter-increment: service-number;
+      @include m.grid(center, center);
+      background-color: #fff;
+      width: 100%;
+      box-shadow: 0px 10px 20px 0px rgb(0 0 0 / 20%);
+      position: relative;
+      transition: v.$trans;
+      &::before {
+        content: "";
+        position: absolute;
+        background-color: v.$main-color;
+        width: 0px;
+        height: 3px;
+        top: -3px;
+        transition: v.$trans;
+      }
+      &:hover {
+        transform: translateY(-10px);
+        &::before {
+          width: 100%;
+        }
+      }
+      svg {
+        height: 60px;
+        margin: 30px 0px 20px;
+        fill: #d5d5d5;
+      }
+      h3 {
+        margin-bottom: 30px;
+        font-size: 26px;
+        color: v.$main-color;
+      }
+      .info {
+        @include m.flex(center, flex-end);
+        width: 100%;
+        background-color: #f9f9f9;
+        position: relative;
+        &::before {
+          content: "0" counter(service-number);
+          position: absolute;
+          left: 0px;
+          width: 80px;
+          height: 100%;
+          background-color: v.$main-color;
+          color: #fff;
+          font-size: 30px;
+          font-weight: bold;
+          @include m.flex(center, center);
+          padding-right: 20px;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          background-color: #d5d5d5;
+          height: 100.5%;
+          width: 40px;
+          left: 80px;
+          transform: skewX(-30deg);
+        }
+        .details {
+          color: v.$main-color;
+          padding: 15px;
+        }
+      }
+    }
+  }
+}

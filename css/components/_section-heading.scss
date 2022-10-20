@@ -58,10 +58,10 @@
     height: 12px;
   }
   100% {
-    right: 0px;
+    right: -1px;
     border-radius: 0;
     width: 51%;
-    height: 100%;
+    height: 101%;
   }
 }
 
@@ -72,10 +72,10 @@
     height: 12px;
   }
   100% {
-    left: 0px;
+    left: -1px;
     border-radius: 0;
     width: 51%;
-    height: 100%;
+    height: 101%;
   }
 }
 @keyframes back-left {

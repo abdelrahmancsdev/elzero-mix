@@ -5,3 +5,8 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 40px;
 }
+@media (max-width: 375px) {
+  .grid-sm-1 {
+    grid-template-columns: 1fr !important;
+  }
+}

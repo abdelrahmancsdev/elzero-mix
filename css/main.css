@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Merienda+One&display=swap");
 * {
   padding: 0px;
   margin: 0px;
@@ -116,10 +115,10 @@ section:not(#landing) {
     height: 12px;
   }
   100% {
-    right: 0px;
+    right: -1px;
     border-radius: 0;
     width: 51%;
-    height: 100%;
+    height: 101%;
   }
 }
 @keyframes fill-left {
@@ -129,10 +128,10 @@ section:not(#landing) {
     height: 12px;
   }
   100% {
-    right: 0px;
+    right: -1px;
     border-radius: 0;
     width: 51%;
-    height: 100%;
+    height: 101%;
   }
 }
 @-webkit-keyframes fill-right {
@@ -142,10 +141,10 @@ section:not(#landing) {
     height: 12px;
   }
   100% {
-    left: 0px;
+    left: -1px;
     border-radius: 0;
     width: 51%;
-    height: 100%;
+    height: 101%;
   }
 }
 @keyframes fill-right {
@@ -155,10 +154,10 @@ section:not(#landing) {
     height: 12px;
   }
   100% {
-    left: 0px;
+    left: -1px;
     border-radius: 0;
     width: 51%;
-    height: 100%;
+    height: 101%;
   }
 }
 @-webkit-keyframes back-left {
@@ -702,8 +701,10 @@ header .container nav .mega-menu .mega-list1 {
   #about .container .image {
     margin-top: -30px;
   }
-  #about .container p {
+  #about .container .text {
     width: 100%;
+  }
+  #about .container .text p {
     padding: 0px 20px;
     text-align: center;
   }
@@ -713,7 +714,7 @@ header .container nav .mega-menu .mega-list1 {
     padding: 0px;
   }
 }
-#features .container, #gallery .container {
+#services .container, #features .container, #gallery .container {
   display: grid;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -723,6 +724,11 @@ header .container nav .mega-menu .mega-list1 {
   gap: 40px;
 }
 
+@media (max-width: 375px) {
+  .grid-sm-1 {
+    grid-template-columns: 1fr !important;
+  }
+}
 #gallery {
   background-color: var(--sec-bg);
 }
@@ -821,7 +827,7 @@ header .container nav .mega-menu .mega-list1 {
   text-align: center;
   padding: var(--space);
 }
-#features .container .feat .content h2 {
+#features .container .feat .content h3 {
   font-size: 36px;
   position: relative;
   width: -webkit-fit-content;
@@ -829,7 +835,7 @@ header .container nav .mega-menu .mega-list1 {
   width: fit-content;
   margin: 0px auto 50px;
 }
-#features .container .feat .content h2::after {
+#features .container .feat .content h3::after {
   content: "";
   position: absolute;
   width: 80%;
@@ -875,4 +881,98 @@ header .container nav .mega-menu .mega-list1 {
   .feat:hover .image::after {
     border-width: 150px 100vw 150px 0px !important;
   }
+}
+#services {
+  background-color: var(--sec-bg);
+}
+#services .container .serv {
+  counter-increment: service-number;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  background-color: #fff;
+  width: 100%;
+  -webkit-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
+  position: relative;
+  -webkit-transition: var(--trans);
+  transition: var(--trans);
+}
+#services .container .serv::before {
+  content: "";
+  position: absolute;
+  background-color: var(--main-color);
+  width: 0px;
+  height: 3px;
+  top: -3px;
+  -webkit-transition: var(--trans);
+  transition: var(--trans);
+}
+#services .container .serv:hover {
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+}
+#services .container .serv:hover::before {
+  width: 100%;
+}
+#services .container .serv svg {
+  height: 60px;
+  margin: 30px 0px 20px;
+  fill: #d5d5d5;
+}
+#services .container .serv h3 {
+  margin-bottom: 30px;
+  font-size: 26px;
+  color: var(--main-color);
+}
+#services .container .serv .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 100%;
+  background-color: #f9f9f9;
+  position: relative;
+}
+#services .container .serv .info::before {
+  content: "0" counter(service-number);
+  position: absolute;
+  left: 0px;
+  width: 80px;
+  height: 100%;
+  background-color: var(--main-color);
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-right: 20px;
+}
+#services .container .serv .info::after {
+  content: "";
+  position: absolute;
+  background-color: #d5d5d5;
+  height: 100.5%;
+  width: 40px;
+  left: 80px;
+  -webkit-transform: skewX(-30deg);
+          transform: skewX(-30deg);
+}
+#services .container .serv .info .details {
+  color: var(--main-color);
+  padding: 15px;
 }/*# sourceMappingURL=main.css.map */
