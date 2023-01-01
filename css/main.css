@@ -13,6 +13,7 @@
   --space: 20px;
   --sec-space: 100px;
   --trans: 0.3s linear;
+  --transe: 0.3s ease;
 }
 
 html {
@@ -998,30 +999,66 @@ header .container nav .mega-menu .mega-list1 {
   padding: 20px 10px 0px;
   background-color: var(--light-color);
   border-radius: 10px;
+  -webkit-transition: var(--transe);
+  transition: var(--transe);
 }
 #team-members .container .member .member-header .image img {
   width: 100%;
 }
-#team-members .container .member .member-header .member-social {
-  list-style-type: disc;
-  list-style-position: inside;
-}
 #team-members .container .member .member-header .member-social li {
-  padding: 10px;
   width: 50px;
+}
+#team-members .container .member .member-header .member-social li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 15px 0px;
+}
+#team-members .container .member .member-header .member-social li a svg {
+  width: 20px;
+  height: 20px;
+  fill: #777;
+  -webkit-transition: var(--transe);
+  transition: var(--transe);
+}
+#team-members .container .member .member-header .member-social li:hover a svg {
+  fill: var(--main-color);
 }
 #team-members .container .member .member-info {
   padding: 20px 20px 20px 70px;
   padding-left: 70px;
 }
-#team-members .container .member::before {
+#team-members .container .member::before, #team-members .container .member::after {
   content: "";
   position: absolute;
   height: 100%;
-  width: calc(100% - 50px);
-  background-color: #eee;
   right: 0px;
   top: 0px;
   border-radius: 10px;
   z-index: -1;
+}
+#team-members .container .member::before {
+  width: calc(100% - 50px);
+  background-color: #eee;
+}
+#team-members .container .member::after {
+  width: 0px;
+  -webkit-transition: var(--transe);
+  transition: var(--transe);
+  background-color: #e0e0e0;
+}
+#team-members .container .member:hover .member-header .image {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+#team-members .container .member:hover::after {
+  width: calc(100% - 50px);
 }/*# sourceMappingURL=main.css.map */
