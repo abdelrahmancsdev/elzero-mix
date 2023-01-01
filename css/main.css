@@ -7,6 +7,7 @@
 
 :root {
   --main-color: #2196f3;
+  --light-color: #dbe7ff;
   --text-color: #111;
   --sec-bg: #ececec;
   --space: 20px;
@@ -714,7 +715,7 @@ header .container nav .mega-menu .mega-list1 {
     padding: 0px;
   }
 }
-#services .container, #features .container, #gallery .container {
+#team-members .container, #services .container, #features .container, #gallery .container {
   display: grid;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -975,4 +976,52 @@ header .container nav .mega-menu .mega-list1 {
 #services .container .serv .info .details {
   color: var(--main-color);
   padding: 15px;
+}
+
+#team-members .container .member {
+  width: 100%;
+  position: relative;
+  padding-top: 50px;
+}
+#team-members .container .member .member-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+#team-members .container .member .member-header .image {
+  padding: 20px 10px 0px;
+  background-color: var(--light-color);
+  border-radius: 10px;
+}
+#team-members .container .member .member-header .image img {
+  width: 100%;
+}
+#team-members .container .member .member-header .member-social {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+#team-members .container .member .member-header .member-social li {
+  padding: 10px;
+  width: 50px;
+}
+#team-members .container .member .member-info {
+  padding: 20px 20px 20px 70px;
+  padding-left: 70px;
+}
+#team-members .container .member::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: calc(100% - 50px);
+  background-color: #eee;
+  right: 0px;
+  top: 0px;
+  border-radius: 10px;
+  z-index: -1;
 }/*# sourceMappingURL=main.css.map */
