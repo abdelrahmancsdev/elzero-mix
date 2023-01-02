@@ -1,0 +1,87 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+@use "../abstracts/placeholders";
+
+#skills {
+  background-color: var(--sec-bg);
+  .container {
+    @include m.grid(center, center);
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    .skills-container {
+      width: 100%;
+      .skill {
+        width: 100%;
+        position: relative;
+        .skill-name,
+        .skill-progress {
+          position: relative;
+          margin-bottom: 15px;
+        }
+        .skill-name {
+          font-size: 18px;
+          font-weight: bold;
+          &::before {
+            content: attr(data-progress);
+            position: absolute;
+            right: 0px;
+            color: v.$main-color;
+            font-size: 14px;
+            border: 2px solid #fff;
+            padding: 0px 4px;
+            border-radius: 5px;
+          }
+        }
+        .skill-progress {
+          background-color: #fff;
+          height: 30px;
+          width: 100%;
+          margin-bottom: 15px;
+          border-radius: 3px;
+          overflow: hidden;
+          &::after {
+            content: "";
+            position: absolute;
+            background-color: v.$main-color;
+            height: 100%;
+            top: 0px;
+            left: 0px;
+          }
+          &.p70 {
+            &::after {
+              width: 70%;
+            }
+          }
+          &.p75 {
+            &::after {
+              width: 75%;
+            }
+          }
+          &.p80 {
+            &::after {
+              width: 80%;
+            }
+          }
+          &.p85 {
+            &::after {
+              width: 85%;
+            }
+          }
+        }
+      }
+    }
+    .image {
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  #skills {
+    .container {
+      grid-template-columns: auto;
+    }
+  }
+}
