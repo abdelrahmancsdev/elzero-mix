@@ -1,9 +1,13 @@
+// Global Variables
 let subMenu = document.querySelector(".sub-menu");
 let megaMenu = document.querySelector(".mega-menu");
 let menuBar = document.querySelector(".menu-bar");
 let navLinks = document.querySelectorAll("nav a:not(.sub-menu)");
 let noneLinks = document.querySelectorAll("a[href='#']:not(.sub-menu)");
-console.log();
+let skillsSection = document.querySelector("#skills");
+let skillsBars = document.querySelectorAll(".progress-bar");
+
+// Mobile Menu
 function toggleActive() {
   subMenu.classList.toggle("active");
   megaMenu.classList.toggle("active");
@@ -30,3 +34,23 @@ noneLinks.forEach((link) => {
     e.preventDefault();
   };
 });
+
+// Animate Skills Bars
+
+window.onscroll = () => {
+  console.log(window.scrollY + skillsSection.offsetHeight);
+  console.log(skillsSection.offsetTop + skillsSection.offsetHeight);
+  if (
+    window.scrollY >= skillsSection.offsetTop - 70 ||
+    window.scrollY + skillsSection.offsetHeight >=
+      skillsSection.offsetTop + skillsSection.offsetHeight - 90
+  ) {
+    let timer = 0;
+    skillsBars.forEach((bar) => {
+      setTimeout(() => {
+        bar.style.width = bar.dataset.progress;
+      }, timer);
+      timer += 250;
+    });
+  }
+};

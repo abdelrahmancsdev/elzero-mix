@@ -1109,30 +1109,25 @@ header .container nav .mega-menu .mega-list1 {
   border-radius: 3px;
   overflow: hidden;
 }
-#skills .container .skills-container .skill .skill-progress::after {
-  content: "";
+#skills .container .skills-container .skill .skill-progress .progress-bar {
   position: absolute;
   background-color: var(--main-color);
   height: 100%;
+  width: 0%;
   top: 0px;
   left: 0px;
-}
-#skills .container .skills-container .skill .skill-progress.p70::after {
-  width: 70%;
-}
-#skills .container .skills-container .skill .skill-progress.p75::after {
-  width: 75%;
-}
-#skills .container .skills-container .skill .skill-progress.p80::after {
-  width: 80%;
-}
-#skills .container .skills-container .skill .skill-progress.p85::after {
-  width: 85%;
+  -webkit-transition: var(--trans);
+  transition: var(--trans);
 }
 #skills .container .image img {
   width: 100%;
 }
 
+@media (max-width: 768px) {
+  #skills .container .image {
+    display: none;
+  }
+}
 @media (max-width: 400px) {
   #skills .container {
     grid-template-columns: auto;
