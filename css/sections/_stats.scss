@@ -1,0 +1,58 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+@use "../abstracts/placeholders";
+
+#stats {
+  position: relative;
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+  }
+  &::before {
+    background-image: url(../../imgs/stats.jpg);
+  }
+  &::after {
+    background-color: #fff;
+    opacity: 0.9;
+  }
+  .container {
+    @include m.grid(center, center);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    .stat {
+      width: 100%;
+      background-color: #fff;
+      @include m.flex(center, center);
+      flex-direction: column;
+      padding: 30px;
+      gap: 10px;
+      .icon {
+        svg {
+          width: 40px;
+          fill: v.$text-color;
+        }
+      }
+      .stat-num {
+        font-size: 50px;
+        font-weight: bold;
+        line-height: 1;
+        color: v.$text-color;
+      }
+      &:last-of-type {
+        .stat-num::after {
+          content: "K";
+        }
+      }
+      .stat-name {
+        color: v.$main-color;
+        font-size: 24px;
+      }
+    }
+  }
+}
