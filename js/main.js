@@ -6,6 +6,9 @@ let navLinks = document.querySelectorAll("nav a:not(.sub-menu)");
 let noneLinks = document.querySelectorAll("a[href='#']:not(.sub-menu)");
 let skillsSection = document.querySelector("#skills");
 let skillsBars = document.querySelectorAll(".progress-bar");
+let statsSec = document.querySelector("#stats");
+let statNums = document.querySelectorAll(".stat-num");
+let started = false;
 
 // Mobile Menu
 function toggleActive() {
@@ -38,8 +41,9 @@ noneLinks.forEach((link) => {
 // Animate Skills Bars
 
 window.onscroll = () => {
-  console.log(window.scrollY + skillsSection.offsetHeight);
-  console.log(skillsSection.offsetTop + skillsSection.offsetHeight);
+  // console.log(statsSec.offsetTop);
+  // console.log(statNums[0].offsetTop);
+  // Skills Scroll Effect
   if (
     window.scrollY >= skillsSection.offsetTop - 70 ||
     window.scrollY + skillsSection.offsetHeight >=
@@ -52,5 +56,22 @@ window.onscroll = () => {
       }, timer);
       timer += 250;
     });
+  }
+  // Stats Scroll Effect
+  console.log(statNums[0].offsetHeight);
+  if (window.scrollY >= statsSec.offsetTop - 250) {
+    if (!started) {
+      statNums.forEach((stat) => {
+        let max = stat.dataset.num;
+        let addNum = max / 50;
+        let counter = setInterval(() => {
+          stat.textContent = +stat.textContent + addNum;
+          if (stat.textContent == max) {
+            clearInterval(counter);
+          }
+        }, 20);
+      });
+    }
+    started = true;
   }
 };
