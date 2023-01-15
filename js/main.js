@@ -58,7 +58,6 @@ window.onscroll = () => {
     });
   }
   // Stats Scroll Effect
-  console.log(statNums[0].offsetHeight);
   if (window.scrollY >= statsSec.offsetTop - 250) {
     if (!started) {
       statNums.forEach((stat) => {

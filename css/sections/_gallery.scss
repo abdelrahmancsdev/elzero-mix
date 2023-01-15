@@ -3,7 +3,6 @@
 @use "../abstracts/placeholders";
 
 #gallery {
-  background-color: v.$sec-bg;
   .container {
     @extend %grid3;
     .image-box {

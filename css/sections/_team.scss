@@ -9,6 +9,7 @@
       width: 100%;
       position: relative;
       padding-top: 50px;
+      z-index: 1;
       .member-header {
         @include m.flex(center, center);
         .image {

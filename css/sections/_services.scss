@@ -3,7 +3,6 @@
 @use "../abstracts/placeholders";
 
 #services {
-  background-color: v.$sec-bg;
   .container {
     @extend %grid3;
     .serv {

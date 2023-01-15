@@ -3,7 +3,6 @@
 @use "../abstracts/placeholders";
 
 #skills {
-  background-color: var(--sec-bg);
   .container {
     @include m.grid(center, center);
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));

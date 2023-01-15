@@ -4,6 +4,7 @@
 
 #stats {
   position: relative;
+  background-color: transparent !important;
   &::before,
   &::after {
     content: "";

@@ -9,7 +9,8 @@
   --main-color: #2196f3;
   --light-color: #dbe7ff;
   --text-color: #111;
-  --sec-bg: #ececec;
+  --odd-bg: #ececec;
+  --even-bg: #fff;
   --space: 20px;
   --sec-space: 100px;
   --trans: 0.3s linear;
@@ -39,4 +40,10 @@ button {
 }
 section:not(#landing) {
   padding: v.$sec-space 0px;
+  &:nth-of-type(odd) {
+    background-color: var(--odd-bg);
+  }
+  &:nth-of-type(even) {
+    background-color: var(--even-bg);
+  }
 }
