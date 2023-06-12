@@ -90,9 +90,8 @@
         font-size: 12px;
         padding: 0;
         margin-bottom: 0;
-        display: flex;
+        @include m.flex(center, center);
         flex-wrap: wrap;
-        justify-content: center;
         li {
           background: #40484d;
           border-radius: 2px;
@@ -101,7 +100,6 @@
           color: rgba(255, 255, 255, 0.7);
           margin: 3px 2px;
           text-align: center;
-          flex-grow: 1;
         }
       }
       &::after {
@@ -172,9 +170,6 @@
         left: 50%;
         margin-left: -15px;
         margin-top: 15px;
-        /* Force Hardware Acceleration in WebKit */
-        -webkit-transform: translateZ(0);
-        -webkit-backface-visibility: hidden;
       }
       .timeline-content {
         color: white;
