@@ -30,15 +30,14 @@
               height: 100%;
               padding: 15px 0px;
 
-              svg {
-                width: 20px;
-                height: 20px;
-                fill: #777;
+              i {
+                font-size: 20px;
+                color: #777;
                 transition: v.$transe;
               }
             }
-            &:hover a svg {
-              fill: v.$main-color;
+            &:hover a i {
+              color: v.$main-color;
             }
           }
         }

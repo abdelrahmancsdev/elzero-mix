@@ -36,9 +36,9 @@
       padding: 30px;
       gap: 10px;
       .icon {
-        svg {
-          width: 40px;
-          fill: v.$text-color;
+        i {
+          font-size: 40px;
+          color: v.$text-color;
         }
       }
       .stat-num {

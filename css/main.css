@@ -317,13 +317,15 @@ header .container nav .nav-menu > li > a {
   -webkit-transition: var(--trans);
   transition: var(--trans);
 }
-header .container nav .nav-menu > li > a svg {
-  width: var(--space);
-  height: var(--space);
+header .container nav .nav-menu > li > a i {
+  font-size: var(--space);
+}
+header .container nav .nav-menu > li > a.sub-menu i {
   -webkit-transition: var(--trans);
   transition: var(--trans);
+  margin-top: 3px;
 }
-header .container nav .nav-menu > li > a.sub-menu.active svg {
+header .container nav .nav-menu > li > a.sub-menu.active i {
   -webkit-transform: rotateZ(-180deg);
           transform: rotateZ(-180deg);
 }
@@ -347,9 +349,6 @@ header .container nav .nav-menu > li > a:hover, header .container nav .nav-menu 
 }
 header .container nav .nav-menu > li > a:hover::before, header .container nav .nav-menu > li > a.active::before {
   background-position: left;
-}
-header .container nav .nav-menu > li > a:hover svg, header .container nav .nav-menu > li > a.active svg {
-  fill: var(--main-color);
 }
 header .container nav .menu-bar {
   display: -webkit-box;
@@ -454,12 +453,7 @@ header .container nav .mega-menu ul li a {
 header .container nav .mega-menu ul li a:hover {
   background-position: left;
 }
-header .container nav .mega-menu ul li a svg {
-  width: var(--space);
-  height: var(--space);
-  fill: var(--main-color);
-}
-header .container nav .mega-menu ul li a svg.timeline-icon {
+header .container nav .mega-menu ul li a i.fa-timeline {
   -webkit-transform: rotateZ(-90deg);
           transform: rotateZ(-90deg);
 }
@@ -598,9 +592,8 @@ header .container nav .mega-menu ul li:not(:last-of-type) a {
   -webkit-animation: landing-arrow 1.5s linear infinite;
           animation: landing-arrow 1.5s linear infinite;
 }
-#landing .double-arrow svg {
-  width: 100%;
-  fill: var(--main-color);
+#landing .double-arrow i {
+  color: var(--main-color);
 }
 
 @media (max-width: 768px) {
@@ -921,10 +914,10 @@ header .container nav .mega-menu ul li:not(:last-of-type) a {
 #services .container .serv:hover::before {
   width: 100%;
 }
-#services .container .serv svg {
-  height: 60px;
+#services .container .serv i {
+  font-size: 60px;
   margin: 30px 0px 20px;
-  fill: #d5d5d5;
+  color: #d5d5d5;
 }
 #services .container .serv h3 {
   margin-bottom: 30px;
@@ -1025,15 +1018,14 @@ header .container nav .mega-menu ul li:not(:last-of-type) a {
   height: 100%;
   padding: 15px 0px;
 }
-#team-members .container .member .member-header .member-social li a svg {
-  width: 20px;
-  height: 20px;
-  fill: #777;
+#team-members .container .member .member-header .member-social li a i {
+  font-size: 20px;
+  color: #777;
   -webkit-transition: var(--transe);
   transition: var(--transe);
 }
-#team-members .container .member .member-header .member-social li:hover a svg {
-  fill: var(--main-color);
+#team-members .container .member .member-header .member-social li:hover a i {
+  color: var(--main-color);
 }
 #team-members .container .member .member-info {
   padding: 20px 20px 20px 70px;
@@ -1178,9 +1170,9 @@ header .container nav .mega-menu ul li:not(:last-of-type) a {
   padding: 30px;
   gap: 10px;
 }
-#stats .container .stat .icon svg {
-  width: 40px;
-  fill: var(--text-color);
+#stats .container .stat .icon i {
+  font-size: 40px;
+  color: var(--text-color);
 }
 #stats .container .stat .stat-num {
   font-size: 50px;

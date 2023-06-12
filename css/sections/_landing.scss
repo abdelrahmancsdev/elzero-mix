@@ -53,9 +53,8 @@
     bottom: 30px;
     cursor: pointer;
     animation: landing-arrow 1.5s linear infinite;
-    svg {
-      width: 100%;
-      fill: v.$main-color;
+    i {
+      color: v.$main-color;
     }
   }
 }

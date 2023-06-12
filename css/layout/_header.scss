@@ -34,14 +34,18 @@ header {
             gap: 10px;
             position: relative;
             transition: v.$trans;
-            svg {
-              width: v.$space;
-              height: v.$space;
-              transition: v.$trans;
+            i {
+              font-size: v.$space;
             }
-            &.sub-menu.active {
-              svg {
-                transform: rotateZ(-180deg);
+            &.sub-menu {
+              i {
+                transition: v.$trans;
+                margin-top: 3px;
+              }
+              &.active {
+                i {
+                  transform: rotateZ(-180deg);
+                }
               }
             }
             &::before {
@@ -60,9 +64,6 @@ header {
               color: v.$main-color;
               &::before {
                 background-position: left;
-              }
-              svg {
-                fill: v.$main-color;
               }
             }
           }
@@ -140,11 +141,8 @@ header {
               &:hover {
                 background-position: left;
               }
-              svg {
-                width: v.$space;
-                height: v.$space;
-                fill: v.$main-color;
-                &.timeline-icon {
+              i {
+                &.fa-timeline {
                   transform: rotateZ(-90deg);
                 }
               }
