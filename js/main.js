@@ -75,17 +75,27 @@ window.onscroll = () => {
   }
 };
 
-// Simple Counter
-let seconds = document.querySelector(".seconds");
-const counter = setInterval(() => {
-  if (+seconds.innerHTML !== 0) {
-    seconds.innerHTML -= 1;
-  } else {
-    clearCounter();
-  }
+// Countdown Timer
+let eventYear = document.querySelector(".event-year");
+// Get next year
+const currentYear = new Date().getFullYear();
+eventYear.innerHTML = currentYear + 1;
+const nextYear = new Date(`JAN 1, ${currentYear + 1} 00:00:00`).getTime();
+
+setInterval(() => {
+  // Get the difference of time
+  const dateNow = new Date();
+  timeDiff = nextYear - dateNow.getTime();
+
+  // Get time units
+  let days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+  document.querySelector(".days").innerHTML = days < 10 ? `0${days}` : days;
+  let hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  document.querySelector(".hours").innerHTML = hours < 10 ? `0${hours}` : hours;
+  let minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+  document.querySelector(".minutes").innerHTML =
+    minutes < 10 ? `0${minutes}` : minutes;
+  let seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+  document.querySelector(".seconds").innerHTML =
+    seconds < 10 ? `0${seconds}` : seconds;
 }, 1000);
-// Clear Counter
-const clearCounter = () => {
-  clearInterval(counter);
-  console.log("Cleared!");
-};
