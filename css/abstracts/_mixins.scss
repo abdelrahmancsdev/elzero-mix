@@ -21,8 +21,8 @@
     transform: translateX(-50%);
   }
 }
-@mixin line-hover($color1, $color2) {
-  background-image: linear-gradient(to left, $color1 50%, $color2 50%);
+@mixin line-hover($color1, $alt-color) {
+  background-image: linear-gradient(to left, $color1 50%, $alt-color 50%);
   background-size: 200%;
   background-position: right;
 }

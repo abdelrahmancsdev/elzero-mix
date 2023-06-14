@@ -74,3 +74,18 @@ window.onscroll = () => {
     started = true;
   }
 };
+
+// Simple Counter
+let seconds = document.querySelector(".seconds");
+const counter = setInterval(() => {
+  if (+seconds.innerHTML !== 0) {
+    seconds.innerHTML -= 1;
+  } else {
+    clearCounter();
+  }
+}, 1000);
+// Clear Counter
+const clearCounter = () => {
+  clearInterval(counter);
+  console.log("Cleared!");
+};

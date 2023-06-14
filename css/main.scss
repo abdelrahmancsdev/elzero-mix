@@ -3,6 +3,7 @@
 @use "core/global";
 @use "components/section-heading";
 @use "components/seperator";
+@use "components/grid-dots";
 @use "layout/header";
 @use "sections/landing";
 @use "sections/about";
@@ -15,3 +16,4 @@
 @use "sections/timeline";
 @use "sections/hiw";
 @use "sections/testimonials";
+@use "sections/events";
