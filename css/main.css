@@ -1880,7 +1880,7 @@ header .container nav .mega-menu ul li:not(:last-of-type) a {
   border-top: 1px solid #eee;
 }
 #pricing .container .box ul li::before {
-  font-family: "Font Awesome 5 Free";
+  font-family: "Font Awesome 6 Free";
   content: "\f00c";
   margin-right: 10px;
   font-weight: 900;
@@ -1904,4 +1904,88 @@ header .container nav .mega-menu ul li:not(:last-of-type) a {
   background-color: var(--alt-color);
   border-color: var(--alt-color);
   color: #fff;
+}
+
+#videos .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: var(--odd-bg);
+  border: 1px solid #ddd;
+}
+@media (max-width: 991px) {
+  #videos .container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+}
+#videos .container .videos-list {
+  min-width: 300px;
+  background-color: #fff;
+}
+#videos .container .videos-list .list-name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 20px;
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+#videos .container .videos-list .list-name i {
+  -webkit-transition: var(--trans);
+  transition: var(--trans);
+  cursor: pointer;
+}
+#videos .container .videos-list .list-name i:hover {
+  color: var(--main-color);
+}
+#videos .container .videos-list ul li {
+  padding: 20px;
+  border-top: 1px solid var(--odd-bg);
+  line-height: 1;
+  cursor: pointer;
+  -webkit-transition: var(--trans);
+  transition: var(--trans);
+}
+#videos .container .videos-list ul li:hover {
+  background-color: #fafafa;
+  color: var(--main-color);
+}
+#videos .container .videos-list ul li span {
+  display: block;
+  margin-top: 10px;
+  color: #777;
+}
+#videos .container .preview {
+  background-color: #e2e2e2;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+#videos .container .preview img {
+  max-width: 100%;
+}
+#videos .container .preview .info {
+  padding: 20px;
+  background-color: #fff;
+  margin-top: 10px;
 }/*# sourceMappingURL=main.css.map */

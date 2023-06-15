@@ -1,0 +1,62 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+
+#videos {
+  .container {
+    @include m.flex(null, center);
+    background-color: v.$odd-bg;
+    border: 1px solid #ddd;
+    @media (max-width: 991px) {
+      & {
+        flex-direction: column-reverse;
+      }
+    }
+    .videos-list {
+      min-width: 300px;
+      background-color: #fff;
+      .list-name {
+        @include m.flex(center, space-between);
+        padding: 20px;
+        background-color: #f4f4f4;
+        font-weight: bold;
+        i {
+          transition: v.$trans;
+          cursor: pointer;
+          &:hover {
+            color: v.$main-color;
+          }
+        }
+      }
+      ul li {
+        padding: 20px;
+        border-top: 1px solid v.$odd-bg;
+        line-height: 1;
+        cursor: pointer;
+        transition: v.$trans;
+        &:hover {
+          background-color: #fafafa;
+          color: v.$main-color;
+        }
+        span {
+          display: block;
+          margin-top: 10px;
+          color: #777;
+        }
+      }
+    }
+    .preview {
+      background-color: #e2e2e2;
+      padding: 10px;
+      @include m.flex(null, space-between);
+      flex-direction: column;
+      img {
+        max-width: 100%;
+      }
+      .info {
+        padding: 20px;
+        background-color: #fff;
+        margin-top: 10px;
+      }
+    }
+  }
+}
