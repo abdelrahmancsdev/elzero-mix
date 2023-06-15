@@ -1,12 +1,11 @@
 @use "../abstracts/variables" as v;
 @use "../abstracts/mixins" as m;
+@use "../abstracts/placeholders";
 
 #testimonials {
   position: relative;
   .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 40px;
+    @extend %grid3;
     padding-top: v.$space;
     .box {
       padding: 20px;

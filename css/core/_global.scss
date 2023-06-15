@@ -41,6 +41,7 @@ button {
 }
 section:not(#landing) {
   padding: v.$sec-space 0px;
+  position: relative;
   &:nth-of-type(odd) {
     background-color: var(--odd-bg);
   }
