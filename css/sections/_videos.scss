@@ -13,7 +13,13 @@
     }
     .videos-list {
       min-width: 300px;
+      max-width: 100%;
       background-color: #fff;
+      @media (max-width: 375px) {
+        & {
+          min-width: auto;
+        }
+      }
       .list-name {
         @include m.flex(center, space-between);
         padding: 20px;
