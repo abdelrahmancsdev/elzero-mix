@@ -1,0 +1,109 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+
+#discount {
+  display: flex;
+  flex-wrap: wrap;
+  .description {
+    background-image: url(../imgs/discount-background1.jpg);
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    flex-basis: 50%;
+    @include m.flex(flex-start, center);
+    position: relative;
+    padding: 50px 0px;
+    z-index: 1;
+    animation: change-background 15s linear infinite;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgb(23 135 224 / 93%);
+      z-index: -1;
+    }
+    @media (max-width: 991px) {
+      & {
+        flex-basis: 100%;
+      }
+    }
+  }
+  .form {
+    @include m.flex(flex-start, center);
+    flex-basis: 50%;
+    padding: 50px 0px;
+    @media (max-width: 991px) {
+      & {
+        flex-basis: 100%;
+      }
+    }
+    input,
+    textarea {
+      display: block;
+      width: 100%;
+      margin-bottom: 25px;
+      padding: 15px;
+      border: none;
+      border-bottom: 1px solid #ccc;
+      background-color: #f9f9f9;
+      caret-color: v.$main-color;
+      transition: v.$transe;
+      &:focus {
+        outline: none;
+        border-bottom: 1px solid v.$main-color;
+      }
+      &[type="submit"] {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        background-color: v.$main-color;
+        color: #fff;
+        font-weight: bold;
+        font-size: 20px;
+        border: none;
+        cursor: pointer;
+        transition: v.$trans;
+        &:hover {
+          background-color: v.$alt-color;
+        }
+      }
+    }
+    textarea {
+      resize: none;
+      height: 200px;
+    }
+  }
+  .content {
+    text-align: center;
+    padding: 0 20px;
+    h2 {
+      font-size: 40px;
+      letter-spacing: -2px;
+    }
+    p {
+      line-height: 1.6;
+      font-size: 18px;
+      max-width: 500px;
+    }
+    img {
+      width: 300px;
+      max-width: 100%;
+    }
+  }
+}
+
+@keyframes change-background {
+  0%,
+  100% {
+    background-image: url("../imgs/discount-background1.jpg");
+  }
+  33% {
+    background-image: url("../imgs/discount-background2.jpg");
+  }
+  66% {
+    background-image: url("../imgs/discount-background3.jpg");
+  }
+}

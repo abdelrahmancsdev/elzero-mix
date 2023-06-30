@@ -39,7 +39,7 @@ button {
   width: 100%;
   max-width: 1200px;
 }
-section:not(#landing) {
+section:not(#landing, #discount) {
   padding: v.$sec-space 0px;
   position: relative;
   &:nth-of-type(odd) {
