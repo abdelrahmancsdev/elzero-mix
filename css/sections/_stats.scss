@@ -35,6 +35,33 @@
       flex-direction: column;
       padding: 30px;
       gap: 10px;
+      position: relative;
+      opacity: 0.8;
+      transition: v.$trans;
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: 2px;
+        background-color: var(--main-color);
+        transition: 1s;
+        height: 0;
+      }
+      &::before {
+        top: 0;
+        right: 0;
+      }
+      &::after {
+        left: 0;
+        bottom: 0;
+      }
+      &:hover {
+        opacity: 1;
+        &::before,
+        &::after {
+          height: 100%;
+        }
+      }
       .icon {
         i {
           font-size: 40px;

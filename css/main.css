@@ -762,7 +762,7 @@ header .container nav .mega-menu ul li:not(:last-of-type) a {
           align-items: stretch;
   justify-items: center;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
+  gap: 15px;
   margin-top: 20px;
 }
 #about .container .text .features .feat {
@@ -1219,6 +1219,10 @@ footer .container, #articles .container {
   width: 100%;
   position: relative;
 }
+#skills .container .skills-container .skill:hover .skill-name::before {
+  background-color: var(--main-color);
+  color: #fff;
+}
 #skills .container .skills-container .skill .skill-name,
 #skills .container .skills-container .skill .skill-progress {
   position: relative;
@@ -1237,6 +1241,8 @@ footer .container, #articles .container {
   border: 2px solid #fff;
   padding: 0px 4px;
   border-radius: 5px;
+  -webkit-transition: var(--trans);
+  transition: var(--trans);
 }
 #skills .container .skills-container .skill .skill-progress {
   background-color: #fff;
@@ -1314,6 +1320,33 @@ footer .container, #articles .container {
           flex-direction: column;
   padding: 30px;
   gap: 10px;
+  position: relative;
+  opacity: 0.8;
+  -webkit-transition: var(--trans);
+  transition: var(--trans);
+}
+#stats .container .stat::before, #stats .container .stat::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  background-color: var(--main-color);
+  -webkit-transition: 1s;
+  transition: 1s;
+  height: 0;
+}
+#stats .container .stat::before {
+  top: 0;
+  right: 0;
+}
+#stats .container .stat::after {
+  left: 0;
+  bottom: 0;
+}
+#stats .container .stat:hover {
+  opacity: 1;
+}
+#stats .container .stat:hover::before, #stats .container .stat:hover::after {
+  height: 100%;
 }
 #stats .container .stat .icon i {
   font-size: 40px;
@@ -1684,6 +1717,9 @@ footer .container, #articles .container {
   border-radius: 6px;
   position: relative;
 }
+#testimonials .container .box:hover img {
+  border-color: var(--main-color);
+}
 #testimonials .container .box img {
   position: absolute;
   right: -10px;
@@ -1692,6 +1728,8 @@ footer .container, #articles .container {
   height: 100px;
   border-radius: 50%;
   border: 10px solid var(--odd-bg);
+  -webkit-transition: var(--trans);
+  transition: var(--trans);
 }
 #testimonials .container .box h3 {
   margin: 0 0 10px;
@@ -2208,7 +2246,8 @@ footer .container, #articles .container {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(23, 135, 224, 0.93);
+  background-color: var(--main-color);
+  opacity: 0.93;
   z-index: -1;
 }
 @media (max-width: 991px) {
@@ -2424,6 +2463,9 @@ footer .container .box .line {
   color: #b9b9b9;
   margin-bottom: 30px;
 }
+footer .container .box .line:hover i {
+  color: var(--alt-color);
+}
 @media (max-width: 767px) {
   footer .container .box .line {
     -webkit-box-orient: vertical;
@@ -2436,6 +2478,8 @@ footer .container .box .line i {
   font-size: 25px;
   color: var(--main-color);
   margin-right: 10px;
+  -webkit-transition: var(--trans);
+  transition: var(--trans);
 }
 @media (max-width: 767px) {
   footer .container .box .line i {

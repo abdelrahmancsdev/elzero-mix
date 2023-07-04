@@ -22,7 +22,8 @@
       top: 0;
       width: 100%;
       height: 100%;
-      background-color: rgb(23 135 224 / 93%);
+      background-color: v.$main-color;
+      opacity: 0.93;
       z-index: -1;
     }
     @media (max-width: 991px) {

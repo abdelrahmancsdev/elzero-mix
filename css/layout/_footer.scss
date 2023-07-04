@@ -91,6 +91,11 @@ footer {
         @include m.flex(center, null);
         color: #b9b9b9;
         margin-bottom: 30px;
+        &:hover {
+          i {
+            color: v.$alt-color;
+          }
+        }
         @media (max-width: 767px) {
           & {
             flex-direction: column;
@@ -100,6 +105,7 @@ footer {
           font-size: 25px;
           color: v.$main-color;
           margin-right: 10px;
+          transition: v.$trans;
           @media (max-width: 767px) {
             & {
               margin-right: 0;
