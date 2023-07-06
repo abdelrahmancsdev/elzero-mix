@@ -22,6 +22,9 @@ html {
 }
 body {
   font-family: "Cairo", sans-serif;
+  &.popup-active {
+    overflow-y: hidden;
+  }
 }
 ul {
   list-style-type: none;
