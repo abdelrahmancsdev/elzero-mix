@@ -5,29 +5,49 @@
   text-align: center;
   position: fixed;
   @include m.center-pos("a");
+  transform: translate(-50%, calc(-50% - 50px));
+  opacity: 0;
   z-index: 1002;
-
+  animation: message-fadein 0.7s ease forwards;
+  .next-btn,
+  .prev-btn {
+    position: absolute;
+    @include m.center-pos("v");
+    cursor: pointer;
+    i {
+      font-size: 40px;
+      margin: 0px;
+      background-color: #fff;
+      border-radius: 50%;
+    }
+  }
+  .next-btn {
+    right: -50px;
+  }
+  .prev-btn {
+    left: -50px;
+  }
   .close-popup {
     position: absolute;
     top: -15px;
     right: -15px;
-    background-color: v.$main-color;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    font-size: 20px;
+    background-color: #fff;
+    @include m.flex(center, center);
     color: #fff;
     cursor: pointer;
     font-weight: bold;
     border-radius: 50%;
+    i {
+      margin: 0px;
+      font-size: 40px;
+    }
   }
   .popup-content {
     background-color: #fff;
     border: 1px solid #ccc;
     padding: 20px;
     width: 75vh;
-    max-width: calc(100vw - 40px);
+    max-width: calc(100vw - 100px);
     max-height: calc(100vh - 40px);
     overflow-y: auto;
   }
@@ -47,10 +67,35 @@
     font-size: 120px;
     margin: 30px 0px 20px;
     color: v.$main-color;
+    transition: v.$transe;
+    &:hover {
+      color: v.$alt-color;
+    }
   }
   .more,
   .details {
     display: none;
+  }
+  @media (max-width: 768px) {
+    & {
+      .close-popup {
+        i {
+          font-size: 30px;
+        }
+      }
+      .next-btn,
+      .prev-btn {
+        i {
+          font-size: 30px;
+        }
+      }
+      .next-btn {
+        right: -40px;
+      }
+      .prev-btn {
+        left: -40px;
+      }
+    }
   }
 }
 .popup-overlay {
@@ -62,4 +107,11 @@
   width: 100%;
   height: 100%;
   z-index: 1000;
+}
+
+@keyframes message-fadein {
+  100% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
 }

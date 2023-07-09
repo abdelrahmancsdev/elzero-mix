@@ -31,7 +31,7 @@ navLinks.forEach((link) => {
   };
 });
 
-// Prevent Links Default Behvior
+// Prevent Links Default Behavior
 noneLinks.forEach((link) => {
   link.onclick = (e) => {
     e.preventDefault();
@@ -41,8 +41,6 @@ noneLinks.forEach((link) => {
 // Animate Skills Bars
 
 window.onscroll = () => {
-  // console.log(statsSec.offsetTop);
-  // console.log(statNums[0].offsetTop);
   // Skills Scroll Effect
   if (
     window.scrollY >= skillsSection.offsetTop - 70 ||
@@ -100,8 +98,9 @@ setInterval(() => {
     seconds < 10 ? `0${seconds}` : seconds;
 }, 1000);
 
-// Popup
+// Popup Functionality
 function openPopup(popElement, type) {
+  // Create Popup Elements
   let popup = document.createElement("div");
   popup.classList.add("popup-box");
   let popupOverlay = document.createElement("div");
@@ -110,24 +109,85 @@ function openPopup(popElement, type) {
   closePopup.classList.add("close-popup");
   let popupContent = document.createElement("div");
   popupContent.classList.add("popup-content");
-  closePopup.textContent = "X";
+  closePopup.innerHTML = '<i class="fa-solid fa-circle-xmark"></i>';
   closePopup.onclick = () => {
     popup.remove();
     popupOverlay.remove();
     document.body.classList.remove("popup-active");
+    window.removeEventListener("keydown", keyEvents);
   };
   popupContent.appendChild(popElement);
+  let nextBtn;
+  let prevBtn;
   if (type != "gallery") {
     let loremPara = document.createElement("p");
     loremPara.textContent =
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero quis architecto ipsa debitis magni sequi consequuntur deleniti dolorum in voluptatem, deserunt eum reiciendis velit minima id amet facere! Magnam, consequatur.";
     popupContent.appendChild(loremPara);
+    if (type == "article") {
+      for (let i = 0; i < 5; i++) {
+        popupContent.appendChild(document.createElement("br"));
+        popupContent.appendChild(loremPara.cloneNode(true));
+      }
+    }
+  } else {
+    // Define Gallery Buttons
+    nextBtn = document.createElement("button");
+    nextBtn.classList.add("next-btn");
+    nextBtn.innerHTML = '<i class="fa-solid fa-circle-right"></i>';
+    prevBtn = document.createElement("button");
+    prevBtn.classList.add("prev-btn");
+    prevBtn.innerHTML = '<i class="fa-solid fa-circle-left"></i>';
+    popup.appendChild(nextBtn);
+    popup.appendChild(prevBtn);
+    popup.classList.add("gallery");
+
+    // Buttons Controls
+    let currentIndex = +popElement.dataset.index;
+    let imagesList = document.querySelectorAll(".image-box .image img");
+    nextBtn.onclick = () => {
+      if (currentIndex < imagesList.length - 1) {
+        document
+          .querySelector(".popup-box.gallery img")
+          .setAttribute(
+            "src",
+            `${imagesList[currentIndex + 1].getAttribute("src")}`
+          );
+        currentIndex++;
+      }
+    };
+    prevBtn.onclick = () => {
+      if (currentIndex > 0) {
+        document
+          .querySelector(".popup-box.gallery img")
+          .setAttribute(
+            "src",
+            `${imagesList[currentIndex - 1].getAttribute("src")}`
+          );
+        currentIndex--;
+      }
+    };
   }
   popup.appendChild(closePopup);
   popup.appendChild(popupContent);
   document.body.appendChild(popup);
   document.body.appendChild(popupOverlay);
   document.body.classList.add("popup-active");
+
+  // Keyboard Events
+  function keyEvents(e) {
+    if (e.key == "Escape") {
+      closePopup.click();
+    }
+    if (type == "gallery") {
+      if (e.key == "ArrowRight") {
+        nextBtn.click();
+      } else if (e.key == "ArrowLeft") {
+        prevBtn.click();
+      }
+    }
+  }
+  window.addEventListener("keydown", keyEvents);
 }
 
 // Gallery Popup

@@ -36,6 +36,9 @@ button {
   border: none;
   background-color: transparent;
 }
+img {
+  user-select: none;
+}
 .container {
   padding: 0px 20px;
   margin: auto;
