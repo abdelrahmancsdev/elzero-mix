@@ -552,7 +552,7 @@ header .container nav .mega-menu ul li:not(:last-of-type) a {
     display: block;
   }
   header .container nav .mega-menu .mega-list0,
-  header .container nav .mega-menu .mega-list1 {
+header .container nav .mega-menu .mega-list1 {
     border-bottom: 1px solid #ddd;
   }
 }
@@ -1459,7 +1459,7 @@ footer .container, #articles .container {
 }
 @media (max-width: 500px) {
   #timeline .container .timeline-content .timeline-content-info .timeline-content-info-title,
-  #timeline .container .timeline-content .timeline-content-info .timeline-content-info-date {
+#timeline .container .timeline-content .timeline-content-info .timeline-content-info-date {
     display: block;
     width: 100%;
   }
@@ -1614,7 +1614,7 @@ footer .container, #articles .container {
     font-size: 1rem;
   }
   #timeline .container .timeline-content .read-more,
-  #timeline .container .timeline-content .date {
+#timeline .container .timeline-content .date {
     font-size: 14px;
     font-size: 0.875rem;
   }
@@ -1927,11 +1927,11 @@ footer .container, #articles .container {
     border-radius: 0;
   }
   #events .container .subscribe form input[type=email],
-  #events .container .subscribe form input[type=submit] {
+#events .container .subscribe form input[type=submit] {
     border-radius: 0;
   }
 }
-#pricing .container .box {
+#pricing .container .plan {
   position: relative;
   width: 100%;
   background: #fff;
@@ -1942,7 +1942,7 @@ footer .container, #articles .container {
   transition: var(--trans);
   z-index: 1;
 }
-#pricing .container .box::before, #pricing .container .box::after {
+#pricing .container .plan::before, #pricing .container .plan::after {
   content: "";
   width: 0;
   height: 50%;
@@ -1952,23 +1952,23 @@ footer .container, #articles .container {
   -webkit-transition: var(--trans);
   transition: var(--trans);
 }
-#pricing .container .box::before {
+#pricing .container .plan::before {
   left: 0;
   top: 0;
 }
-#pricing .container .box::after {
+#pricing .container .plan::after {
   right: 0;
   bottom: 0;
 }
-#pricing .container .box:hover::before, #pricing .container .box:hover::after {
+#pricing .container .plan:hover::before, #pricing .container .plan:hover::after, #pricing .container .plan.active::before, #pricing .container .plan.active::after {
   width: 100%;
 }
 @media (min-width: 1024px) {
-  #pricing .container .box.popular {
+  #pricing .container .plan.popular {
     top: -20px;
   }
 }
-#pricing .container .box .label {
+#pricing .container .plan .label {
   position: absolute;
   -webkit-writing-mode: vertical-rl;
       -ms-writing-mode: tb-rl;
@@ -1991,11 +1991,11 @@ footer .container, #articles .container {
   width: 40px;
 }
 @media (max-width: 320px) {
-  #pricing .container .box .label {
+  #pricing .container .plan .label {
     right: 0px;
   }
 }
-#pricing .container .box .label::before {
+#pricing .container .plan .label::before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -2004,44 +2004,44 @@ footer .container, #articles .container {
   border-color: transparent transparent #fff;
   border-width: 20px;
 }
-#pricing .container .box .title {
+#pricing .container .plan .title {
   font-weight: bold;
   margin: 30px 0;
   font-size: 25px;
   letter-spacing: -1px;
 }
-#pricing .container .box img {
+#pricing .container .plan img {
   width: 80px;
   margin-bottom: 30px;
 }
-#pricing .container .box .price {
+#pricing .container .plan .price {
   margin-bottom: 20px;
 }
-#pricing .container .box .price .amount {
+#pricing .container .plan .price .amount {
   display: block;
   font-size: 60px;
   font-weight: bold;
   margin-bottom: 5px;
   color: var(--main-color);
 }
-#pricing .container .box .price .time {
+#pricing .container .plan .price .time {
   color: #777;
 }
-#pricing .container .box ul {
+#pricing .container .plan ul {
   text-align: left;
 }
-#pricing .container .box ul li {
+#pricing .container .plan ul li {
   padding: 20px;
   border-top: 1px solid #eee;
 }
-#pricing .container .box ul li::before {
+#pricing .container .plan ul li::before {
   font-family: "Font Awesome 6 Free";
   content: "\f00c";
   margin-right: 10px;
   font-weight: 900;
   color: var(--main-color);
 }
-#pricing .container .box a {
+#pricing .container .plan a {
   display: block;
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -2055,7 +2055,7 @@ footer .container, #articles .container {
   -webkit-transition: var(--trans);
   transition: var(--trans);
 }
-#pricing .container .box a:hover {
+#pricing .container .plan a:hover, #pricing .container .plan a.active {
   background-color: var(--alt-color);
   border-color: var(--alt-color);
   color: #fff;
@@ -2648,7 +2648,7 @@ footer .copyright .developer:hover {
     font-size: 30px;
   }
   .popup-box .next-btn i,
-  .popup-box .prev-btn i {
+.popup-box .prev-btn i {
     font-size: 30px;
   }
   .popup-box .next-btn {

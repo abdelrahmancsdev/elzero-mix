@@ -5,7 +5,7 @@
 #pricing {
   .container {
     @extend %grid3;
-    .box {
+    .plan {
       position: relative;
       width: 100%;
       background: #fff;
@@ -32,7 +32,9 @@
         bottom: 0;
       }
       &:hover::before,
-      &:hover::after {
+      &:hover::after,
+      &.active::before,
+      &.active::after {
         width: 100%;
       }
       &.popular {
@@ -116,7 +118,8 @@
         border-radius: 6px;
         font-weight: bold;
         transition: v.$trans;
-        &:hover {
+        &:hover,
+        &.active {
           background-color: v.$alt-color;
           border-color: v.$alt-color;
           color: #fff;

@@ -219,11 +219,34 @@ servBtn.forEach((btn) => {
 });
 
 // Articles Popup
-let postBtn = document.querySelectorAll("#articles .post .more");
-postBtn.forEach((btn) => {
+let postBtns = document.querySelectorAll("#articles .post .more");
+postBtns.forEach((btn) => {
   btn.onclick = (e) => {
     e.preventDefault();
     let currentPost = btn.parentElement.parentElement.cloneNode(true);
     openPopup(currentPost, "article");
+  };
+});
+
+// Pricing Button State
+
+let planBtns = document.querySelectorAll("#pricing .plan a");
+planBtns.forEach((btn) => {
+  btn.onclick = (e) => {
+    e.preventDefault();
+    if (!e.target.classList.contains("active")) {
+      planBtns.forEach((btn) => {
+        btn.classList.remove("active");
+        btn.parentElement.classList.remove("active");
+        btn.textContent = "Choose Plan";
+        e.target.classList.add("active");
+        e.target.parentElement.classList.add("active");
+        e.target.textContent = "Plan Chosen";
+      });
+    } else {
+      e.target.classList.remove("active");
+      e.target.parentElement.classList.remove("active");
+      e.target.textContent = "Choose Plan";
+    }
   };
 });
