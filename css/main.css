@@ -2061,7 +2061,7 @@ footer .container, #articles .container {
   color: #fff;
 }
 
-#videos .container {
+#top-videos .videos-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2072,24 +2072,24 @@ footer .container, #articles .container {
   border: 1px solid #ddd;
 }
 @media (max-width: 991px) {
-  #videos .container {
+  #top-videos .videos-container {
     -webkit-box-orient: vertical;
     -webkit-box-direction: reverse;
         -ms-flex-direction: column-reverse;
             flex-direction: column-reverse;
   }
 }
-#videos .container .videos-list {
+#top-videos .videos-container .videos-list {
   min-width: 300px;
   max-width: 100%;
   background-color: #fff;
 }
 @media (max-width: 375px) {
-  #videos .container .videos-list {
+  #top-videos .videos-container .videos-list {
     min-width: auto;
   }
 }
-#videos .container .videos-list .list-name {
+#top-videos .videos-container .videos-list .list-name {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2103,15 +2103,51 @@ footer .container, #articles .container {
   background-color: #f4f4f4;
   font-weight: bold;
 }
-#videos .container .videos-list .list-name i {
+#top-videos .videos-container .videos-list .list-name i {
+  padding: 5px;
   -webkit-transition: var(--trans);
   transition: var(--trans);
   cursor: pointer;
 }
-#videos .container .videos-list .list-name i:hover {
+#top-videos .videos-container .videos-list .list-name i:hover {
   color: var(--main-color);
 }
-#videos .container .videos-list ul li {
+#top-videos .videos-container .videos-list .videos-ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+}
+@media (min-width: 992px) {
+  #top-videos .videos-container .videos-list .videos-ul {
+    max-height: 400px;
+  }
+}
+@media (min-width: 1070px) {
+  #top-videos .videos-container .videos-list .videos-ul {
+    max-height: 450px;
+  }
+}
+@media (min-width: 1200px) {
+  #top-videos .videos-container .videos-list .videos-ul {
+    max-height: 493px;
+  }
+}
+#top-videos .videos-container .videos-list .videos-ul.loaded {
+  display: block;
+}
+#top-videos .videos-container .videos-list .videos-ul li {
   padding: 20px;
   border-top: 1px solid var(--odd-bg);
   line-height: 1;
@@ -2119,33 +2155,44 @@ footer .container, #articles .container {
   -webkit-transition: var(--trans);
   transition: var(--trans);
 }
-#videos .container .videos-list ul li:hover {
+#top-videos .videos-container .videos-list .videos-ul li:hover, #top-videos .videos-container .videos-list .videos-ul li.active {
   background-color: #fafafa;
   color: var(--main-color);
 }
-#videos .container .videos-list ul li span {
+#top-videos .videos-container .videos-list .videos-ul li span {
   display: block;
   margin-top: 10px;
   color: #777;
 }
-#videos .container .preview {
+#top-videos .videos-container .preview {
   background-color: #e2e2e2;
   padding: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
-#videos .container .preview img {
+#top-videos .videos-container .preview img {
   max-width: 100%;
 }
-#videos .container .preview .info {
+#top-videos .videos-container .preview .video-player.loaded {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  padding-bottom: 56.25%;
+}
+#top-videos .videos-container .preview .video-player.loaded iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+#top-videos .videos-container .preview .video-title {
   padding: 20px;
   background-color: #fff;
   margin-top: 10px;
@@ -2614,7 +2661,7 @@ footer .copyright .developer:hover {
   padding: 20px;
   width: 75vh;
   max-width: calc(100vw - 100px);
-  max-height: calc(100vh - 40px);
+  max-height: calc(100vh - 100px);
   overflow-y: auto;
 }
 .popup-box img {

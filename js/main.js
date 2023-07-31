@@ -250,3 +250,78 @@ planBtns.forEach((btn) => {
     }
   };
 });
+
+// Fetch Videos Data
+
+fetch("./data.json")
+  .then((data) => data.text())
+  .then((data) => displayVideos(data));
+
+// Select Elements
+let videosList = document.querySelector(".videos-ul");
+let videoPlayer = document.querySelector(".video-player");
+let videoTitle = document.querySelector(".video-title");
+let randomVideoBtn = document.querySelector(".fa-random");
+let currentIndex = 0;
+
+// Display Videos List
+function displayVideos(data) {
+  let videosData = JSON.parse(data);
+  if (videosData) {
+    videosList.innerHTML = "";
+    videosList.classList.add("loaded");
+    videoPlayer.classList.add("loaded");
+    videoPlayer.innerHTML = `<iframe src="https://www.youtube.com/embed/${videosData[0].id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+    videoTitle.textContent = videosData[0].title;
+  }
+  videosData.forEach(
+    ({ title, duration, id, index }, i) =>
+      (videosList.innerHTML += `<li name="${title}" ${
+        i == 0 ? 'class="active"' : ""
+      } id="${id}" data-index="${index}" onclick="videoSwitch()">${title}<span>${duration}</span></li>`)
+  );
+  // Select Random Video
+  function generateRandomNum() {
+    let randomIndex = +Math.round(Math.random() * (videosData.length - 1));
+    console.log(randomIndex);
+    if (randomIndex == currentIndex) {
+      generateRandomNum();
+    } else {
+      currentIndex = randomIndex;
+      videoSwitch(randomIndex);
+    }
+  }
+  randomVideoBtn.onclick = () => {
+    generateRandomNum();
+  };
+}
+// Change The Selected Video
+function videoSwitch(index) {
+  if (!index && index !== 0) {
+    let target = window.event.target;
+    if (target.tagName != "LI") {
+      target = target.parentElement;
+    }
+    if (!target.classList.contains("active")) {
+      currentIndex = target.dataset.index;
+      document.querySelectorAll(".videos-ul li").forEach((video) => {
+        video.classList.remove("active");
+      });
+      target.classList.add("active");
+      videoTitle.textContent = target.getAttribute("name");
+      document.querySelector(
+        ".video-player iframe"
+      ).src = `https://www.youtube.com/embed/${target.id}`;
+    }
+  } else {
+    let videos = document.querySelectorAll(".videos-ul li");
+    videos.forEach((video) => {
+      video.classList.remove("active");
+    });
+    videos[index].classList.add("active");
+    videoTitle.textContent = videos[index].getAttribute("name");
+    document.querySelector(
+      ".video-player iframe"
+    ).src = `https://www.youtube.com/embed/${videos[index].id}`;
+  }
+}
