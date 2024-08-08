@@ -311,6 +311,98 @@ section:not(#landing, #discount):nth-of-type(even) {
     height: 50px;
   }
 }
+#scroll-top {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: var(--trans);
+  transition: var(--trans);
+}
+#scroll-top.show {
+  visibility: visible;
+  opacity: 1;
+}
+#scroll-top .scroll-progress {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: fixed;
+  bottom: var(--space);
+  right: var(--space);
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  z-index: 99;
+  overflow: hidden;
+  cursor: pointer;
+}
+#scroll-top .scroll-progress:hover .scroll-icon {
+  color: #fff;
+  background-color: var(--main-color);
+}
+#scroll-top .scroll-progress:hover .scroll-icon i {
+  -webkit-animation: arrow-jump 0.3s linear;
+          animation: arrow-jump 0.3s linear;
+}
+#scroll-top .scroll-progress .scroll-icon {
+  height: calc(100% - 6px);
+  width: calc(100% - 6px);
+  background-color: #fff;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 24px;
+  color: var(--main-color);
+  -webkit-transition: var(--trans);
+  transition: var(--trans);
+}
+
+@-webkit-keyframes arrow-jump {
+  40% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  70% {
+    opacity: 0;
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes arrow-jump {
+  40% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  70% {
+    opacity: 0;
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
 header {
   height: 70px;
   position: fixed;

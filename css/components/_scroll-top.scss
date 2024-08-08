@@ -1,0 +1,59 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+
+#scroll-top {
+  visibility: hidden;
+  opacity: 0;
+  transition: v.$trans;
+  &.show {
+    visibility: visible;
+    opacity: 1;
+  }
+  .scroll-progress {
+    @include m.flex(center, center);
+    position: fixed;
+    bottom: v.$space;
+    right: v.$space;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    z-index: 99;
+    overflow: hidden;
+    &:hover {
+      .scroll-icon {
+        color: #fff;
+        background-color: v.$main-color;
+        i {
+          animation: arrow-jump 0.3s linear;
+        }
+      }
+    }
+    // box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    .scroll-icon {
+      height: calc(100% - 6px);
+      width: calc(100% - 6px);
+      background-color: #fff;
+      border-radius: 50%;
+      @include m.flex(center, center);
+      font-size: 24px;
+      color: v.$main-color;
+      transition: v.$trans;
+    }
+  }
+}
+
+@keyframes arrow-jump {
+  40% {
+    transform: translateY(-100%);
+  }
+
+  70% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

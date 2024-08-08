@@ -71,6 +71,8 @@ window.onscroll = () => {
     }
     started = true;
   }
+  // Call Scroll Progress Function
+  calcScrollProgress();
 };
 
 // Countdown Timer
@@ -325,3 +327,46 @@ function videoSwitch(index) {
     ).src = `https://www.youtube.com/embed/${videos[index].id}`;
   }
 }
+
+// Scroll to top
+function calcScrollProgress() {
+  let scrollTop = document.querySelector("#scroll-top");
+  let scrollProgress = document.querySelector(".scroll-progress");
+  let scrollY = window.scrollY;
+  let calcHeight = document.documentElement.scrollHeight - window.innerHeight;
+  let scrollValue = ((scrollY * 100) / calcHeight).toFixed(2);
+  scrollProgress.style.backgroundImage = `conic-gradient(var(--main-color) ${scrollValue}%, #d7d7d7 ${scrollValue}%)`;
+  if (scrollY >= 200) {
+    scrollTop.classList.add("show");
+  } else {
+    scrollTop.classList.remove("show");
+  }
+  scrollTop.onclick = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
+}
+
+window.onload = calcScrollProgress;
+
+// Settings List
+
+let settingsBtn = document.querySelector(".settings-btn");
+let settingsOptions = document.querySelector(".settings-options");
+let settingsOverlay = document.querySelector(".settings-overlay");
+let closeSettings = document.querySelector(".close-settings");
+settingsBtn.onclick = () => {
+  settingsOptions.classList.add("active");
+  settingsOverlay.classList.add("active");
+  settingsOverlay.onclick = () => {
+    settingsOptions.classList.remove("active");
+    settingsOverlay.classList.remove("active");
+  };
+};
+closeSettings.onclick = () => {
+  settingsOptions.classList.remove("active");
+  settingsOverlay.classList.remove("active");
+};
