@@ -1,0 +1,75 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+
+#settings {
+  .settings-btn {
+    @include m.flex(center, center);
+    position: fixed;
+    background-color: #fff;
+    color: v.$main-color;
+    font-size: 24px;
+    bottom: v.$space;
+    right: v.$space;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    z-index: 99;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: v.$trans;
+    &:hover {
+      color: #fff;
+      background-color: v.$main-color;
+      transform: rotate(90deg);
+    }
+  }
+  .settings-options {
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    max-width: 100%;
+    background-color: #fff;
+    top: 0px;
+    right: 0px;
+    z-index: 999;
+    visibility: hidden;
+    transform: translateX(100%);
+    transition: v.$trans;
+    &.active {
+      visibility: visible;
+      transform: translateX(0%);
+    }
+    .close-settings {
+      background-color: v.$main-color;
+      color: #fff;
+      padding: 5px 10px;
+      font-size: 24px;
+      cursor: pointer;
+      transition: v.$trans;
+      &:hover {
+        background-color: v.$alt-color;
+      }
+    }
+    h2 {
+      text-align: center;
+      padding: 10px 0px;
+      border-bottom: 1px solid v.$odd-bg;
+    }
+  }
+  .settings-overlay {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    background-color: rgb(0 0 0 / 20%);
+    z-index: 999;
+    visibility: hidden;
+    opacity: 0;
+    transition: v.$trans;
+    &.active {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}

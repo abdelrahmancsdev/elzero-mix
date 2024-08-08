@@ -12,13 +12,15 @@
   .scroll-progress {
     @include m.flex(center, center);
     position: fixed;
-    bottom: v.$space;
+    bottom: calc(70px + v.$space);
     right: v.$space;
     height: 50px;
     width: 50px;
     border-radius: 50%;
     z-index: 99;
     overflow: hidden;
+    // box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
     &:hover {
       .scroll-icon {
         color: #fff;
@@ -28,8 +30,7 @@
         }
       }
     }
-    // box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
+    
     .scroll-icon {
       height: calc(100% - 6px);
       width: calc(100% - 6px);
