@@ -19,6 +19,9 @@
       h2 {
         font-size: 40px;
         margin-bottom: v.$space;
+        .brand-name {
+          color: v.$main-color;
+        }
       }
       p {
         color: #555;

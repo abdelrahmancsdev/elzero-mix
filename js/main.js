@@ -45,7 +45,7 @@ window.onscroll = () => {
   if (
     window.scrollY >= skillsSection.offsetTop - 70 ||
     window.scrollY + skillsSection.offsetHeight >=
-      skillsSection.offsetTop + skillsSection.offsetHeight - 90
+    skillsSection.offsetTop + skillsSection.offsetHeight - 90
   ) {
     let timer = 0;
     skillsBars.forEach((bar) => {
@@ -278,14 +278,13 @@ function displayVideos(data) {
   }
   videosData.forEach(
     ({ title, duration, id, index }, i) =>
-      (videosList.innerHTML += `<li name="${title}" ${
-        i == 0 ? 'class="active"' : ""
+    (videosList.innerHTML += `<li name="${title}" ${i == 0 ? 'class="active"' : ""
       } id="${id}" data-index="${index}" onclick="videoSwitch()">${title}<span>${duration}</span></li>`)
   );
   // Select Random Video
   function generateRandomNum() {
     let randomIndex = +Math.round(Math.random() * (videosData.length - 1));
-    console.log(randomIndex);
+    // console.log(randomIndex);
     if (randomIndex == currentIndex) {
       generateRandomNum();
     } else {
@@ -370,3 +369,28 @@ closeSettings.onclick = () => {
   settingsOptions.classList.remove("active");
   settingsOverlay.classList.remove("active");
 };
+
+// // Settings Options
+let colorsOptions = document.querySelectorAll(".colors-list li");
+colorsOptions.forEach(color => {
+  color.onclick = (e) => {
+    colorsOptions.forEach(color => {
+      color.classList.remove("active");
+    })
+    e.target.classList.add("active");
+    localStorage.color_option = e.target.dataset.color;
+    document.body.dataset.color = e.target.dataset.color;
+  }
+})
+document.addEventListener("DOMContentLoaded", (e) => {
+  localStorage.color_option ? document.body.dataset.color = localStorage.color_option : document.body.dataset.color = "blue";
+  colorsOptions.forEach(color => {
+  if (localStorage.color_option) {
+    if (color.dataset.color === localStorage.color_option) {
+      color.classList.add("active");
+    } 
+  } else if (color.dataset.color === "blue") {
+    color.classList.add("active");
+  }
+  });
+})

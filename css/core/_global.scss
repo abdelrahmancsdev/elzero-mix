@@ -5,10 +5,11 @@
   margin: 0px;
   box-sizing: border-box;
 }
+
 :root {
   --main-color: #2196f3;
   --alt-color: #0a6fc2;
-  --light-color: #dbe7ff;
+  --light-color: #c7d9fb;
   --text-color: #111;
   --odd-bg: #ececec;
   --even-bg: #fff;
@@ -17,40 +18,81 @@
   --trans: 0.3s linear;
   --transe: 0.3s ease;
 }
+
 html {
   scroll-behavior: smooth;
 }
+
 body {
   font-family: "Cairo", sans-serif;
+
   &.popup-active {
     overflow-y: hidden;
   }
+  &[data-color=red] {
+    --main-color: #F44336;
+    --alt-color: #c1170a;
+    --light-color: #fba8a2;
+  }
+
+  &[data-color=green] {
+    --main-color: #009688;
+    --alt-color: #025e55;
+    --light-color: #a5fff7;
+    
+  }
+
+  &[data-color=blue] {
+    --main-color: #2196F3;
+    --alt-color: #0a6fc2;
+    --light-color: #c7d9fb;
+  }
+
+  &[data-color=yellow] {
+    --main-color: #FFC107;
+    --alt-color: #c29100;
+    --light-color: #ffebb0;
+  }
+
+  &[data-color=purple] {
+    --main-color: #673ab7;
+    --alt-color: #400d9b;
+    --light-color: #d3baff;
+  }
 }
+
 ul {
   list-style-type: none;
 }
+
 a {
   text-decoration: none;
 }
+
 button {
   border: none;
   background-color: transparent;
 }
+
 img {
   user-select: none;
 }
+
 .container {
   padding: 0px 20px;
   margin: auto;
   width: 100%;
   max-width: 1200px;
 }
+
 section:not(#landing, #discount) {
   padding: v.$sec-space 0px;
   position: relative;
+
   &:nth-of-type(odd) {
     background-color: var(--odd-bg);
   }
+
   &:nth-of-type(even) {
     background-color: var(--even-bg);
   }
