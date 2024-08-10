@@ -5,7 +5,7 @@
   .settings-btn {
     @include m.flex(center, center);
     position: fixed;
-    background-color: #fff;
+    background-color: v.$light-bg;
     color: v.$main-color;
     font-size: 24px;
     bottom: v.$space;
@@ -13,6 +13,7 @@
     height: 50px;
     width: 50px;
     border-radius: 50%;
+    border: 3px solid v.$main-color;
     z-index: 99;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     cursor: pointer;
@@ -72,7 +73,7 @@
 
         h3 {
           text-align: center;
-          color: #555;
+          color: v.$para-color;
           line-height: 1;
           margin-bottom: 15px;
         }
@@ -117,7 +118,8 @@
           }
         }
 
-        .toggle-animations {
+        .toggle-animations,
+        .toggle-darkmode {
           @include m.flex(center, center);
           gap: 10px;
           color: #444;

@@ -5,25 +5,32 @@
 #team-members {
   .container {
     @extend %grid3;
+
     .member {
       width: 100%;
       position: relative;
       padding-top: 50px;
       z-index: 1;
+      color: v.$text-color;
+
       .member-header {
         @include m.flex(center, center);
+
         .image {
           padding: 20px 10px 0px;
           background-color: v.$light-color;
           border-radius: 10px;
           transition: v.$transe;
+
           img {
             width: 100%;
           }
         }
+
         .member-social {
           li {
             width: 50px;
+
             a {
               @include m.flex(center, center);
               width: 100%;
@@ -32,20 +39,23 @@
 
               i {
                 font-size: 20px;
-                color: #777;
+                color: v.$para-color;
                 transition: v.$transe;
               }
             }
+
             &:hover a i {
               color: v.$main-color;
             }
           }
         }
       }
+
       .member-info {
         padding: 20px 20px 20px 70px;
         padding-left: 70px;
       }
+
       &::before,
       &::after {
         content: "";
@@ -56,21 +66,27 @@
         border-radius: 10px;
         z-index: -1;
       }
+
       &::before {
         width: calc(100% - 50px);
-        background-color: #eee;
+        background-color: v.$odd-bg;
       }
+
       &::after {
         width: 0px;
         transition: v.$transe;
         background-color: #e0e0e0;
       }
+
       &:hover {
+        color: #000;
+
         .member-header {
           .image {
             filter: grayscale(1);
           }
         }
+
         &::after {
           width: calc(100% - 50px);
         }

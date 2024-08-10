@@ -10,7 +10,8 @@
   font-size: 32px;
   padding: 10px 20px;
   line-height: 1.25;
-  border: 3px solid #000;
+  color: v.$text-color;
+  border: 3px solid v.$text-color;
   user-select: none;
   transition: 0.25s 0.25s linear;
 
@@ -25,38 +26,46 @@
     @include m.center-pos(v);
     transition: 0.5s linear;
   }
+
   &::before {
     right: -30px;
     animation: back-left 0.5s linear both;
   }
+
   &::after {
     left: -30px;
     animation: back-right 0.5s linear both;
   }
+
   &:hover {
     color: #fff;
     border-color: v.$main-color;
   }
+
   &:hover::before {
     animation: fill-left 0.5s linear both;
     z-index: -1;
   }
+
   &:hover::after {
     animation: fill-right 0.5s linear both;
     z-index: -1;
   }
 }
+
 @media (max-width: 375px) {
   .main-heading {
     font-size: 24px;
   }
 }
+
 @keyframes fill-left {
   50% {
     right: 0px;
     width: 12px;
     height: 12px;
   }
+
   100% {
     right: -1px;
     border-radius: 0;
@@ -71,6 +80,7 @@
     width: 12px;
     height: 12px;
   }
+
   100% {
     left: -1px;
     border-radius: 0;
@@ -78,6 +88,7 @@
     height: 101%;
   }
 }
+
 @keyframes back-left {
   0% {
     right: 0px;
@@ -86,11 +97,13 @@
     height: 100%;
     z-index: -1;
   }
+
   50% {
     right: 0px;
     width: 12px;
     height: 12px;
   }
+
   100% {
     right: -30px;
     border-radius: 50%;
@@ -98,6 +111,7 @@
     height: 12px;
   }
 }
+
 @keyframes back-right {
   0% {
     left: 0px;
@@ -106,11 +120,13 @@
     height: 100%;
     z-index: -1;
   }
+
   50% {
     left: 0px;
     width: 12px;
     height: 12px;
   }
+
   100% {
     left: -30px;
     border-radius: 50%;

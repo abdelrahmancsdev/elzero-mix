@@ -1,13 +1,16 @@
 @use "../abstracts/variables" as v;
 @use "../abstracts/mixins" as m;
+
 #about {
   .container {
     gap: 50px;
     @include m.flex(center, center);
+
     .image {
       position: relative;
       padding: 40px;
       margin: 20px 0;
+
       &::before {
         content: "";
         position: absolute;
@@ -19,27 +22,33 @@
         box-sizing: border-box;
         transition: v.$trans;
       }
+
       &:hover {
         &::before {
           width: 100%;
         }
       }
+
       img {
         width: 100%;
         position: relative;
       }
     }
+
     .text {
       width: 50%;
-      color: #555;
+      color: v.$para-color;
+
       p:first-child {
         margin-bottom: 15px;
       }
+
       .features {
         @include m.grid(stretch, center);
         grid-template-columns: 1fr 1fr 1fr;
         gap: 15px;
         margin-top: 20px;
+
         .feat {
           @include m.flex(center, center);
           flex-direction: column;
@@ -49,23 +58,29 @@
           text-align: center;
           position: relative;
           overflow: hidden;
+
           &:hover {
+
             &::before,
             &::after {
               border-width: 80px;
             }
+
             h3 {
               color: #fff;
             }
           }
+
           @media (max-width: 768px) and (min-width: 650px) {
             &:hover {
+
               &::before,
               &::after {
                 border-width: 100px;
               }
             }
           }
+
           &::before,
           &::after {
             content: "";
@@ -73,25 +88,30 @@
             border: 10px solid;
             transition: v.$trans;
           }
+
           &::before {
             top: 0px;
             right: 0px;
             border-color: v.$main-color v.$main-color transparent transparent;
           }
+
           &::after {
             bottom: 0px;
             left: 0px;
             border-color: transparent transparent v.$main-color v.$main-color;
           }
+
           img,
           h3 {
             position: relative;
             z-index: 1;
           }
+
           img {
             width: 50px;
             flex-shrink: 2;
           }
+
           h3 {
             font-size: 14px;
             margin-top: 10px;
@@ -102,21 +122,26 @@
     }
   }
 }
+
 @media (max-width: 768px) {
   #about {
     .container {
       flex-wrap: wrap;
       gap: 0px;
+
       .image {
         margin-top: -30px;
         padding: 20px;
+
         &::before {
           border-width: 5px;
           width: 100%;
         }
       }
+
       .text {
         width: 100%;
+
         p {
           text-align: center;
         }

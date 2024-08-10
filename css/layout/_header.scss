@@ -1,17 +1,20 @@
 @use "../abstracts/variables" as v;
 @use "../abstracts/mixins" as m;
+
 header {
   height: 70px;
   position: fixed;
   top: 0px;
-  background-color: #fff;
   width: 100%;
-  box-shadow: 0px 0px 10px #ccc;
+  background-color: v.$even-bg;
+  box-shadow: 0px 0px 10px #999;
   z-index: 999;
+
   .container {
     @include m.flex(center, space-between);
     position: relative;
-    background-color: #fff;
+    background-color: v.$even-bg;
+
     .logo {
       h1 {
         a {
@@ -21,11 +24,13 @@ header {
         }
       }
     }
+
     nav {
       .nav-menu {
         @include m.flex(center, center);
-        > li {
-          > a {
+
+        >li {
+          >a {
             font-size: 18px;
             padding: 0px v.$space;
             height: 70px;
@@ -34,20 +39,24 @@ header {
             gap: 10px;
             position: relative;
             transition: v.$trans;
+
             i {
               font-size: v.$space;
             }
+
             &.sub-menu {
               i {
                 transition: v.$trans;
                 margin-top: 3px;
               }
+
               &.active {
                 i {
                   transform: rotateZ(-180deg);
                 }
               }
             }
+
             &::before {
               content: "";
               height: 4px;
@@ -58,10 +67,12 @@ header {
               left: 0px;
               transition: v.$trans;
             }
+
             &:hover,
             &.active {
-              background-color: #f9f9f9;
+              background-color: v.$light-bg;
               color: v.$main-color;
+
               &::before {
                 background-position: left;
               }
@@ -69,6 +80,7 @@ header {
           }
         }
       }
+
       .menu-bar {
         @include m.flex(center, center);
         display: none;
@@ -78,6 +90,7 @@ header {
         flex-direction: column;
         gap: 5px;
         cursor: pointer;
+
         .bar1,
         .bar2 {
           width: 30px;
@@ -85,15 +98,18 @@ header {
           background-color: v.$text-color;
           transition: v.$trans;
         }
+
         &.active {
           .bar1 {
             transform: translateY(4px) rotate(-45deg);
           }
+
           .bar2 {
             transform: translateY(-5px) rotate(45deg);
           }
         }
       }
+
       .mega-menu {
         position: fixed;
         left: 50%;
@@ -105,28 +121,34 @@ header {
         @include m.grid(center, center);
         grid-template-columns: 2fr 1fr 1fr;
         gap: calc(v.$space * 2);
-        background-color: #fff;
+        background-color: v.$even-bg;
         padding: v.$space;
         z-index: -1;
         transition: 0.5s linear;
         opacity: 0;
         border-bottom: 3px solid v.$main-color;
+
         &.active {
           transform: translateY(0px) translateX(-50%);
           opacity: 1;
         }
+
         img {
           transition: 0.4s linear;
           width: 100%;
+
           &:hover {
             filter: hue-rotate(180deg);
           }
         }
+
         ul {
           width: 100%;
+
           &.mega-list0 {
             display: none;
           }
+
           li {
             a {
               display: block;
@@ -134,19 +156,22 @@ header {
               font-size: 18px;
               // font-weight: bold;
               color: v.$main-color;
-              @include m.line-hover(transparent, #f9f9f9);
+              @include m.line-hover(transparent, v.$light-bg);
               transition: v.$trans;
               @include m.flex(center, null);
               gap: 10px;
+
               &:hover {
                 background-position: left;
               }
+
               i {
                 &.fa-timeline {
                   transform: rotateZ(-90deg);
                 }
               }
             }
+
             &:not(:last-of-type) {
               a {
                 border-bottom: 1px solid #ddd;
@@ -158,6 +183,7 @@ header {
     }
   }
 }
+
 @media (max-width: 990px) {
   header {
     .container {
@@ -169,12 +195,14 @@ header {
     }
   }
 }
+
 @media (max-width: 870px) {
   header {
     .container {
       nav {
         .mega-menu {
           grid-template-columns: 1fr 1fr;
+
           img {
             display: none;
           }
@@ -183,6 +211,7 @@ header {
     }
   }
 }
+
 @media (max-width: 768px) {
   header {
     .container {
@@ -190,9 +219,11 @@ header {
         .nav-menu {
           display: none;
         }
+
         .menu-bar {
           display: flex;
         }
+
         .mega-menu {
           bottom: 0px;
           grid-template-columns: 1fr;
@@ -203,14 +234,17 @@ header {
           gap: 0px;
           left: auto;
           right: 0px;
+
           &.active {
             transform: translateY(0px) translateX(0px);
           }
+
           ul {
             &.mega-list0 {
               display: block;
             }
           }
+
           .mega-list0,
           .mega-list1 {
             border-bottom: 1px solid #ddd;
@@ -220,6 +254,7 @@ header {
     }
   }
 }
+
 @media (max-height: 320px) {
   header {
     .container {
@@ -231,6 +266,7 @@ header {
     }
   }
 }
+
 @media (max-width: 300px) {
   header {
     .container {
@@ -242,6 +278,7 @@ header {
         }
       }
     }
+
     .container:first-child {
       padding: 0px;
     }

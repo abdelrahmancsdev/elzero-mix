@@ -11,8 +11,10 @@
   --alt-color: #0a6fc2;
   --light-color: #c7d9fb;
   --text-color: #111;
+  --para-color: #555;
   --odd-bg: #ececec;
   --even-bg: #fff;
+  --light-bg: #f9f9f9;
   --space: 20px;
   --sec-space: 100px;
   --trans: 0.3s linear;
@@ -94,6 +96,19 @@ body {
 
     .main-heading:hover {
       color: #000;
+    }
+  }
+
+  &.darkmode {
+    --text-color: #f1f1f1;
+    --para-color: #888;
+    --odd-bg: #191919;
+    --even-bg: #000;
+    --light-bg: #111;
+
+
+    #hiw .info .box::before {
+      background-color: #252525;
     }
   }
 }

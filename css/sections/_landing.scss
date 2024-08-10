@@ -2,9 +2,10 @@
 @use "../abstracts/mixins" as m;
 
 #landing {
-  background-color: #fff;
+  background-color: v.$even-bg;
   position: relative;
   overflow: hidden;
+
   .container {
     @include m.flex(center, space-between);
     gap: v.$space;
@@ -16,19 +17,24 @@
       width: 100%;
       max-width: 550px;
       position: relative;
+      color: v.$text-color;
+
       h2 {
         font-size: 40px;
         margin-bottom: v.$space;
+
         .brand-name {
           color: v.$main-color;
         }
       }
+
       p {
-        color: #555;
+        color: v.$para-color;
         font-size: 24px;
         line-height: 1.6;
       }
     }
+
     .image {
       img {
         width: 100%;
@@ -37,6 +43,7 @@
       }
     }
   }
+
   &::before {
     content: "";
     width: 100%;
@@ -48,6 +55,7 @@
     transform: skewY(-5deg);
     transform-origin: top left;
   }
+
   .double-arrow {
     width: v.$space;
     position: absolute;
@@ -56,11 +64,13 @@
     bottom: 30px;
     cursor: pointer;
     animation: landing-arrow 1.5s linear infinite;
+
     i {
       color: v.$main-color;
     }
   }
 }
+
 @media (max-width: 768px) {
   #landing {
     .container {
@@ -69,19 +79,23 @@
 
       .content {
         text-align: center;
+
         h2 {
           font-size: 30px;
         }
+
         p {
           font-size: 18px;
         }
       }
+
       .image {
         margin-top: 30px;
       }
     }
   }
 }
+
 @media (max-height: 600px) {
   #landing {
     .container {
@@ -91,18 +105,23 @@
     }
   }
 }
+
 @keyframes img-up-down {
   0% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-40px);
   }
+
   100% {
     transform: translateY(0px);
   }
 }
+
 @keyframes landing-arrow {
+
   0%,
   10%,
   20%,
@@ -111,6 +130,7 @@
   100% {
     transform: translateX(-50%) translateY(0);
   }
+
   40%,
   60% {
     transform: translateX(-50%) translateY(-15px);

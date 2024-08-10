@@ -9,8 +9,10 @@
   --alt-color: #0a6fc2;
   --light-color: #c7d9fb;
   --text-color: #111;
+  --para-color: #555;
   --odd-bg: #ececec;
   --even-bg: #fff;
+  --light-bg: #f9f9f9;
   --space: 20px;
   --sec-space: 100px;
   --trans: 0.3s linear;
@@ -83,6 +85,16 @@ body.no-animations ::placeholder {
 body.no-animations .main-heading:hover {
   color: #000;
 }
+body.darkmode {
+  --text-color: #f1f1f1;
+  --para-color: #888;
+  --odd-bg: #191919;
+  --even-bg: #000;
+  --light-bg: #111;
+}
+body.darkmode #hiw .info .box::before {
+  background-color: #252525;
+}
 
 ul {
   list-style-type: none;
@@ -128,7 +140,8 @@ section:not(#landing, #discount):nth-of-type(even) {
   font-size: 32px;
   padding: 10px 20px;
   line-height: 1.25;
-  border: 3px solid #000;
+  color: var(--text-color);
+  border: 3px solid var(--text-color);
   user-select: none;
   transition: 0.25s 0.25s linear;
 }
@@ -243,7 +256,7 @@ section:not(#landing, #discount):nth-of-type(even) {
   position: absolute;
   width: 100%;
   height: 30px;
-  background-image: linear-gradient(135deg, #fff 25%, transparent 25%), linear-gradient(225deg, #fff 25%, transparent 25%);
+  background-image: linear-gradient(135deg, var(--even-bg) 25%, transparent 25%), linear-gradient(225deg, var(--even-bg) 25%, transparent 25%);
   background-size: 30px;
   z-index: 1;
 }
@@ -318,7 +331,7 @@ section:not(#landing, #discount):nth-of-type(even) {
 #scroll-top .scroll-progress .scroll-icon {
   height: calc(100% - 6px);
   width: calc(100% - 6px);
-  background-color: #fff;
+  background-color: var(--light-bg);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -346,7 +359,7 @@ section:not(#landing, #discount):nth-of-type(even) {
   align-items: center;
   justify-content: center;
   position: fixed;
-  background-color: #fff;
+  background-color: var(--light-bg);
   color: var(--main-color);
   font-size: 24px;
   bottom: var(--space);
@@ -354,6 +367,7 @@ section:not(#landing, #discount):nth-of-type(even) {
   height: 50px;
   width: 50px;
   border-radius: 50%;
+  border: 3px solid var(--main-color);
   z-index: 99;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
@@ -407,7 +421,7 @@ section:not(#landing, #discount):nth-of-type(even) {
 }
 #settings .settings-options .options-list > li h3 {
   text-align: center;
-  color: #555;
+  color: var(--para-color);
   line-height: 1;
   margin-bottom: 15px;
 }
@@ -444,14 +458,16 @@ section:not(#landing, #discount):nth-of-type(even) {
 #settings .settings-options .options-list > li .colors-list li:hover, #settings .settings-options .options-list > li .colors-list li.active {
   opacity: 1;
 }
-#settings .settings-options .options-list > li .toggle-animations {
+#settings .settings-options .options-list > li .toggle-animations,
+#settings .settings-options .options-list > li .toggle-darkmode {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   color: #444;
 }
-#settings .settings-options .options-list > li .toggle-animations .toggle-btn {
+#settings .settings-options .options-list > li .toggle-animations .toggle-btn,
+#settings .settings-options .options-list > li .toggle-darkmode .toggle-btn {
   width: 52px;
   height: 26px;
   background-color: var(--main-color);
@@ -460,7 +476,8 @@ section:not(#landing, #discount):nth-of-type(even) {
   cursor: pointer;
   transition: 0.3s ease;
 }
-#settings .settings-options .options-list > li .toggle-animations .toggle-btn::after {
+#settings .settings-options .options-list > li .toggle-animations .toggle-btn::after,
+#settings .settings-options .options-list > li .toggle-darkmode .toggle-btn::after {
   content: "";
   width: 20px;
   height: 20px;
@@ -472,10 +489,12 @@ section:not(#landing, #discount):nth-of-type(even) {
   transform: translateX(0px);
   transition: 0.3s ease;
 }
-#settings .settings-options .options-list > li .toggle-animations .toggle-btn.toggle-off {
+#settings .settings-options .options-list > li .toggle-animations .toggle-btn.toggle-off,
+#settings .settings-options .options-list > li .toggle-darkmode .toggle-btn.toggle-off {
   background-color: #ccc;
 }
-#settings .settings-options .options-list > li .toggle-animations .toggle-btn.toggle-off::after {
+#settings .settings-options .options-list > li .toggle-animations .toggle-btn.toggle-off::after,
+#settings .settings-options .options-list > li .toggle-darkmode .toggle-btn.toggle-off::after {
   transform: translateX(26px);
 }
 #settings .settings-overlay {
@@ -499,9 +518,9 @@ header {
   height: 70px;
   position: fixed;
   top: 0px;
-  background-color: #fff;
   width: 100%;
-  box-shadow: 0px 0px 10px #ccc;
+  background-color: var(--even-bg);
+  box-shadow: 0px 0px 10px #999;
   z-index: 999;
 }
 header .container {
@@ -509,7 +528,7 @@ header .container {
   align-items: center;
   justify-content: space-between;
   position: relative;
-  background-color: #fff;
+  background-color: var(--even-bg);
 }
 header .container .logo h1 a {
   color: var(--main-color);
@@ -555,7 +574,7 @@ header .container nav .nav-menu > li > a::before {
   transition: var(--trans);
 }
 header .container nav .nav-menu > li > a:hover, header .container nav .nav-menu > li > a.active {
-  background-color: #f9f9f9;
+  background-color: var(--light-bg);
   color: var(--main-color);
 }
 header .container nav .nav-menu > li > a:hover::before, header .container nav .nav-menu > li > a.active::before {
@@ -599,7 +618,7 @@ header .container nav .mega-menu {
   justify-items: center;
   grid-template-columns: 2fr 1fr 1fr;
   gap: calc(var(--space) * 2);
-  background-color: #fff;
+  background-color: var(--even-bg);
   padding: var(--space);
   z-index: -1;
   transition: 0.5s linear;
@@ -628,7 +647,7 @@ header .container nav .mega-menu ul li a {
   padding: 15px;
   font-size: 18px;
   color: var(--main-color);
-  background-image: linear-gradient(to left, transparent 50%, #f9f9f9 50%);
+  background-image: linear-gradient(to left, transparent 50%, var(--light-bg) 50%);
   background-size: 200%;
   background-position: right;
   transition: var(--trans);
@@ -702,7 +721,7 @@ header .container nav .mega-menu ul li:not(:last-of-type) a {
   }
 }
 #landing {
-  background-color: #fff;
+  background-color: var(--even-bg);
   position: relative;
   overflow: hidden;
 }
@@ -719,6 +738,7 @@ header .container nav .mega-menu ul li:not(:last-of-type) a {
   width: 100%;
   max-width: 550px;
   position: relative;
+  color: var(--text-color);
 }
 #landing .container .content h2 {
   font-size: 40px;
@@ -728,7 +748,7 @@ header .container nav .mega-menu ul li:not(:last-of-type) a {
   color: var(--main-color);
 }
 #landing .container .content p {
-  color: #555;
+  color: var(--para-color);
   font-size: 24px;
   line-height: 1.6;
 }
@@ -836,7 +856,7 @@ header .container nav .mega-menu ul li:not(:last-of-type) a {
 }
 #about .container .text {
   width: 50%;
-  color: #555;
+  color: var(--para-color);
 }
 #about .container .text p:first-child {
   margin-bottom: 15px;
@@ -946,7 +966,7 @@ footer .container, #articles .container {
 }
 #gallery .container .image-box {
   padding: 15px;
-  background-color: #fff;
+  background-color: var(--even-bg);
   box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
 }
 #gallery .container .image-box .image {
@@ -1010,7 +1030,7 @@ footer .container, #articles .container {
   bottom: 0;
   border-style: solid;
   border-width: 0px 0px 150px 500px;
-  border-color: transparent transparent #fff transparent;
+  border-color: transparent transparent var(--even-bg) transparent;
   transition: var(--trans);
 }
 #features .container .feat .image img {
@@ -1028,6 +1048,7 @@ footer .container, #articles .container {
   position: relative;
   width: fit-content;
   margin: 0px auto 50px;
+  color: var(--text-color);
 }
 #features .container .feat .content h3::after {
   content: "";
@@ -1041,7 +1062,7 @@ footer .container, #articles .container {
 }
 #features .container .feat .content p {
   font-size: 18px;
-  color: #555;
+  color: var(--para-color);
 }
 #features .container .feat .content .more {
   color: var(--main-color);
@@ -1053,7 +1074,7 @@ footer .container, #articles .container {
   margin-top: 50px;
   margin-bottom: 20px;
   line-height: 1;
-  background-image: linear-gradient(to right, var(--main-color) 50%, #fff 50%);
+  background-image: linear-gradient(to right, var(--main-color) 50%, var(--even-bg) 50%);
   color: var(--main-color);
   background-size: 201%;
   background-position: right;
@@ -1078,7 +1099,7 @@ footer .container, #articles .container {
   display: grid;
   align-items: center;
   justify-items: center;
-  background-color: #fff;
+  background-color: var(--even-bg);
   width: 100%;
   box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
   position: relative;
@@ -1114,7 +1135,7 @@ footer .container, #articles .container {
   align-items: center;
   justify-content: flex-end;
   width: 100%;
-  background-color: #f9f9f9;
+  background-color: var(--light-bg);
   position: relative;
 }
 #services .container .serv .info::before {
@@ -1151,6 +1172,7 @@ footer .container, #articles .container {
   position: relative;
   padding-top: 50px;
   z-index: 1;
+  color: var(--text-color);
 }
 #team-members .container .member .member-header {
   display: flex;
@@ -1179,7 +1201,7 @@ footer .container, #articles .container {
 }
 #team-members .container .member .member-header .member-social li a i {
   font-size: 20px;
-  color: #777;
+  color: var(--para-color);
   transition: var(--transe);
 }
 #team-members .container .member .member-header .member-social li:hover a i {
@@ -1200,12 +1222,15 @@ footer .container, #articles .container {
 }
 #team-members .container .member::before {
   width: calc(100% - 50px);
-  background-color: #eee;
+  background-color: var(--odd-bg);
 }
 #team-members .container .member::after {
   width: 0px;
   transition: var(--transe);
   background-color: #e0e0e0;
+}
+#team-members .container .member:hover {
+  color: #000;
 }
 #team-members .container .member:hover .member-header .image {
   filter: grayscale(1);
@@ -1236,6 +1261,7 @@ footer .container, #articles .container {
 #skills .container .skills-container .skill .skill-progress {
   position: relative;
   margin-bottom: 15px;
+  color: var(--text-color);
 }
 #skills .container .skills-container .skill .skill-name {
   font-size: 18px;
@@ -1247,13 +1273,13 @@ footer .container, #articles .container {
   right: 0px;
   color: var(--main-color);
   font-size: 14px;
-  border: 2px solid #fff;
+  border: 2px solid var(--even-bg);
   padding: 0px 4px;
   border-radius: 5px;
   transition: var(--trans);
 }
 #skills .container .skills-container .skill .skill-progress {
-  background-color: #fff;
+  background-color: var(--even-bg);
   height: 30px;
   width: 100%;
   margin-bottom: 15px;
@@ -1280,7 +1306,6 @@ footer .container, #articles .container {
 }
 #stats {
   position: relative;
-  background-color: transparent !important;
 }
 #stats::before, #stats::after {
   content: "";
@@ -1297,8 +1322,7 @@ footer .container, #articles .container {
   background-size: cover;
 }
 #stats::after {
-  background-color: #fff;
-  opacity: 0.95;
+  opacity: 1;
 }
 #stats .container {
   display: grid;
@@ -1309,7 +1333,7 @@ footer .container, #articles .container {
 }
 #stats .container .stat {
   width: 100%;
-  background-color: #fff;
+  background-color: var(--even-bg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1415,7 +1439,7 @@ footer .container, #articles .container {
   position: relative;
   margin-left: 60px;
   margin-right: 30px;
-  background: #fff;
+  background: var(--even-bg);
   border-radius: 2px;
   padding: 1em;
   border: 3px solid #fff;
@@ -1607,7 +1631,7 @@ footer .container, #articles .container {
   filter: hue-rotate(180deg);
 }
 #hiw .container .info .box {
-  background-color: #f6f5f5;
+  background-color: var(--odd-bg);
   padding: 30px;
   margin-bottom: 20px;
   border-radius: 6px;
@@ -1625,7 +1649,7 @@ footer .container, #articles .container {
   width: 0;
   height: 0;
   transform: translate(-50%, -50%);
-  background-color: #ededed;
+  background-color: #dfdfdf;
   z-index: -1;
   transition: var(--trans);
 }
@@ -1640,9 +1664,10 @@ footer .container, #articles .container {
 #hiw .container .info .box h3 {
   margin: 0;
   font-size: 22px;
+  color: var(--text-color);
 }
 #hiw .container .info .box p {
-  color: #777;
+  color: var(--para-color);
   line-height: 1.7;
   margin: 10px 0 0;
   font-size: 18px;
@@ -1674,7 +1699,7 @@ footer .container, #articles .container {
 }
 #testimonials .container .box {
   padding: 20px;
-  background-color: white;
+  background-color: var(--even-bg);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
   border-radius: 6px;
   position: relative;
@@ -1694,9 +1719,10 @@ footer .container, #articles .container {
 }
 #testimonials .container .box h3 {
   margin: 0 0 10px;
+  color: var(--text-color);
 }
 #testimonials .container .box .title {
-  color: #777;
+  color: var(--para-color);
   margin-bottom: 10px;
   display: block;
 }
@@ -1705,7 +1731,7 @@ footer .container, #articles .container {
 }
 #testimonials .container .box p {
   line-height: 1.5;
-  color: #777;
+  color: var(--para-color);
   margin-top: 10px;
   margin-bottom: 0;
 }
@@ -1743,6 +1769,7 @@ footer .container, #articles .container {
   display: block;
   transition: var(--trans);
   padding: 10px;
+  color: var(--text-color);
 }
 #events .container .info .time .unit span:first-child {
   font-size: 35px;
@@ -1765,7 +1792,7 @@ footer .container, #articles .container {
   text-align: center;
   line-height: 1.7;
   font-size: 19px;
-  color: #777;
+  color: var(--para-color);
 }
 #events .container .subscribe {
   width: 100%;
@@ -1775,7 +1802,7 @@ footer .container, #articles .container {
   width: 600px;
   margin: 20px auto;
   padding: 30px 40px;
-  background-color: #f6f5f5;
+  background-color: var(--odd-bg);
   border-radius: 50px;
   display: flex;
   gap: 20px;
@@ -1787,6 +1814,7 @@ footer .container, #articles .container {
   border: none;
   flex: 1;
   caret-color: var(--main-color);
+  background-color: var(--even-bg);
 }
 #events .container .subscribe form input[type=email]:focus {
   outline: none;
@@ -1831,7 +1859,7 @@ footer .container, #articles .container {
 #pricing .container .plan {
   position: relative;
   width: 100%;
-  background: #fff;
+  background: var(--even-bg);
   text-align: center;
   box-shadow: 0 12px 20px 0 rgba(0, 0, 0, 0.13), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
   transition: var(--trans);
@@ -1841,7 +1869,7 @@ footer .container, #articles .container {
   content: "";
   width: 0;
   height: 50%;
-  background-color: #f6f6f6;
+  background-color: var(--light-bg);
   position: absolute;
   z-index: -1;
   transition: var(--trans);
@@ -1856,6 +1884,9 @@ footer .container, #articles .container {
 }
 #pricing .container .plan:hover::before, #pricing .container .plan:hover::after, #pricing .container .plan.active::before, #pricing .container .plan.active::after {
   width: 100%;
+}
+#pricing .container .plan.popular:hover .label::before {
+  border-color: transparent transparent var(--light-bg);
 }
 @media (min-width: 1024px) {
   #pricing .container .plan.popular {
@@ -1887,8 +1918,9 @@ footer .container, #articles .container {
   bottom: 0;
   right: 0;
   border-style: solid;
-  border-color: transparent transparent #fff;
+  border-color: transparent transparent var(--even-bg);
   border-width: 20px;
+  transition: var(--trans);
 }
 #pricing .container .plan .title {
   font-weight: bold;
@@ -1912,10 +1944,11 @@ footer .container, #articles .container {
   color: var(--main-color);
 }
 #pricing .container .plan .price .time {
-  color: #777;
+  color: var(--para-color);
 }
 #pricing .container .plan ul {
   text-align: left;
+  color: var(--text-color);
 }
 #pricing .container .plan ul li {
   padding: 20px;
@@ -1959,7 +1992,8 @@ footer .container, #articles .container {
 #top-videos .videos-container .videos-list {
   min-width: 300px;
   max-width: 100%;
-  background-color: #fff;
+  background-color: var(--odd-bg);
+  color: var(--text-color);
 }
 @media (max-width: 375px) {
   #top-videos .videos-container .videos-list {
@@ -1971,8 +2005,9 @@ footer .container, #articles .container {
   align-items: center;
   justify-content: space-between;
   padding: 20px;
-  background-color: #f4f4f4;
+  background-color: var(--light-bg);
   font-weight: bold;
+  filter: brightness(0.9);
 }
 #top-videos .videos-container .videos-list .list-name i {
   padding: 5px;
@@ -1989,6 +2024,7 @@ footer .container, #articles .container {
   flex-direction: column;
   height: 100%;
   overflow-y: auto;
+  color: var(--text-color);
 }
 @media (min-width: 992px) {
   #top-videos .videos-container .videos-list .videos-ul {
@@ -2022,7 +2058,7 @@ footer .container, #articles .container {
 #top-videos .videos-container .videos-list .videos-ul li span {
   display: block;
   margin-top: 10px;
-  color: #777;
+  color: var(--para-color);
 }
 #top-videos .videos-container .preview {
   background-color: #e2e2e2;
@@ -2047,13 +2083,14 @@ footer .container, #articles .container {
 }
 #top-videos .videos-container .preview .video-title {
   padding: 20px;
-  background-color: #fff;
+  background-color: var(--odd-bg);
+  color: var(--text-color);
   margin-top: 10px;
 }
 
 #articles .container .post {
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-  background-color: white;
+  background-color: var(--even-bg);
   border-radius: 6px;
   overflow: hidden;
   transition: transform var(--trans), box-shadow var(--trans);
@@ -2078,7 +2115,7 @@ footer .container, #articles .container {
 #articles .container .post .content p {
   margin: 10px 0 0;
   line-height: 1.5;
-  color: #777;
+  color: var(--para-color);
 }
 #articles .container .post .info {
   display: flex;
@@ -2109,7 +2146,7 @@ footer .container, #articles .container {
   background-image: url(../imgs/discount-background1.jpg);
   background-size: cover;
   background-position: center;
-  color: #fff;
+  color: var(--even-bg);
   flex-basis: 50%;
   display: flex;
   align-items: flex-start;
@@ -2141,6 +2178,8 @@ footer .container, #articles .container {
   justify-content: center;
   flex-basis: 50%;
   padding: 50px 0px;
+  background-color: var(--even-bg);
+  color: var(--text-color);
 }
 @media (max-width: 991px) {
   #discount .form {
@@ -2155,7 +2194,7 @@ footer .container, #articles .container {
   padding: 15px;
   border: none;
   border-bottom: 1px solid #ccc;
-  background-color: #f9f9f9;
+  background-color: var(--light-bg);
   caret-color: var(--main-color);
   transition: var(--transe);
 }
@@ -2411,7 +2450,7 @@ footer .copyright .developer:hover {
   font-size: 40px;
 }
 .popup-box .popup-content {
-  background-color: #fff;
+  background-color: var(--even-bg);
   border: 1px solid #ccc;
   padding: 20px;
   width: 75vh;
@@ -2426,10 +2465,10 @@ footer .copyright .developer:hover {
 }
 .popup-box h3 {
   font-size: 36px;
-  color: #333;
+  color: var(--text-color);
 }
 .popup-box p {
-  color: #555;
+  color: var(--para-color);
 }
 .popup-box i {
   font-size: 120px;

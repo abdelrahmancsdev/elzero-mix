@@ -5,42 +5,52 @@
 #articles {
   .container {
     @extend %grid4;
+
     .post {
       box-shadow: 0 2px 15px rgb(0 0 0 / 10%);
-      background-color: white;
+      background-color: v.$even-bg;
       border-radius: 6px;
       overflow: hidden;
       transition: transform v.$trans, box-shadow v.$trans;
+
       &:hover {
         transform: translateY(-10px);
         box-shadow: 0 2px 15px rgb(0 0 0 / 20%);
+
         .info i {
           animation: moving-arrow 0.6s linear infinite;
         }
       }
+
       img {
         width: 100%;
         max-width: 100%;
       }
+
       .content {
         padding: v.$space;
+
         h3 {
           margin: 0;
         }
+
         p {
           margin: 10px 0 0;
           line-height: 1.5;
-          color: #777;
+          color: v.$para-color;
         }
       }
+
       .info {
         @include m.flex(center, space-between);
         padding: v.$space;
         border-top: 1px solid #e6e6e7;
+
         a {
           color: v.$main-color;
           font-weight: 500;
         }
+
         i {
           color: v.$main-color;
           cursor: pointer;

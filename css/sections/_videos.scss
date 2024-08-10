@@ -6,34 +6,43 @@
     @include m.flex(null, center);
     background-color: v.$odd-bg;
     border: 1px solid #ddd;
+
     @media (max-width: 991px) {
       & {
         flex-direction: column-reverse;
       }
     }
+
     .videos-list {
       min-width: 300px;
       max-width: 100%;
-      background-color: #fff;
+      background-color: v.$odd-bg;
+      color: v.$text-color;
+
       @media (max-width: 375px) {
         & {
           min-width: auto;
         }
       }
+
       .list-name {
         @include m.flex(center, space-between);
         padding: 20px;
-        background-color: #f4f4f4;
+        background-color: v.$light-bg;
         font-weight: bold;
+        filter: brightness(0.9);
+
         i {
           padding: 5px;
           transition: v.$trans;
           cursor: pointer;
+
           &:hover {
             color: v.$main-color;
           }
         }
       }
+
       .videos-ul {
         display: flex;
         justify-content: center;
@@ -41,16 +50,20 @@
         flex-direction: column;
         height: 100%;
         overflow-y: auto;
+        color: v.$text-color;
+
         @media (min-width: 992px) {
           & {
             max-height: 400px;
           }
         }
+
         @media (min-width: 1070px) {
           & {
             max-height: 450px;
           }
         }
+
         @media (min-width: 1200px) {
           & {
             max-height: 493px;
@@ -60,40 +73,47 @@
         &.loaded {
           display: block;
         }
+
         li {
           padding: 20px;
           border-top: 1px solid v.$odd-bg;
           line-height: 1;
           cursor: pointer;
           transition: v.$trans;
+
           &:hover,
           &.active {
             background-color: #fafafa;
             color: v.$main-color;
           }
+
           span {
             display: block;
             margin-top: 10px;
-            color: #777;
+            color: v.$para-color;
           }
         }
       }
     }
+
     .preview {
       background-color: #e2e2e2;
       padding: 10px;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
+
       img {
         max-width: 100%;
       }
+
       .video-player {
         &.loaded {
           position: relative;
           width: 100%;
           max-width: 100%;
           padding-bottom: 56.25%;
+
           iframe {
             position: absolute;
             width: 100%;
@@ -101,9 +121,11 @@
           }
         }
       }
+
       .video-title {
         padding: 20px;
-        background-color: #fff;
+        background-color: v.$odd-bg;
+        color: v.$text-color;
         margin-top: 10px;
       }
     }

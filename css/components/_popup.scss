@@ -9,11 +9,13 @@
   opacity: 0;
   z-index: 1002;
   animation: message-fadein 0.7s ease forwards;
+
   .next-btn,
   .prev-btn {
     position: absolute;
     @include m.center-pos("v");
     cursor: pointer;
+
     i {
       font-size: 40px;
       margin: 0px;
@@ -21,12 +23,15 @@
       border-radius: 50%;
     }
   }
+
   .next-btn {
     right: -50px;
   }
+
   .prev-btn {
     left: -50px;
   }
+
   .close-popup {
     position: absolute;
     top: -15px;
@@ -37,13 +42,15 @@
     cursor: pointer;
     font-weight: bold;
     border-radius: 50%;
+
     i {
       margin: 0px;
       font-size: 40px;
     }
   }
+
   .popup-content {
-    background-color: #fff;
+    background-color: v.$even-bg;
     border: 1px solid #ccc;
     padding: 20px;
     width: 75vh;
@@ -51,31 +58,38 @@
     max-height: calc(100vh - 100px);
     overflow-y: auto;
   }
+
   img {
     max-width: 100%;
     display: block;
     margin: auto;
   }
+
   h3 {
     font-size: 36px;
-    color: #333;
+    color: v.$text-color;
   }
+
   p {
-    color: #555;
+    color: v.$para-color;
   }
+
   i {
     font-size: 120px;
     margin: 30px 0px 20px;
     color: v.$main-color;
     transition: v.$transe;
+
     &:hover {
       color: v.$alt-color;
     }
   }
+
   .more,
   .details {
     display: none;
   }
+
   @media (max-width: 768px) {
     & {
       .close-popup {
@@ -83,21 +97,25 @@
           font-size: 30px;
         }
       }
+
       .next-btn,
       .prev-btn {
         i {
           font-size: 30px;
         }
       }
+
       .next-btn {
         right: -40px;
       }
+
       .prev-btn {
         left: -40px;
       }
     }
   }
 }
+
 .popup-overlay {
   position: fixed;
   background-color: #000;

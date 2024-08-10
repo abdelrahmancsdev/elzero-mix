@@ -7,44 +7,53 @@
     @include m.grid(center, center);
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 30px;
+
     .skills-container {
       width: 100%;
+
       .skill {
         width: 100%;
         position: relative;
+
         &:hover {
           .skill-name::before {
             background-color: v.$main-color;
             color: #fff;
           }
         }
+
         .skill-name,
         .skill-progress {
           position: relative;
           margin-bottom: 15px;
+          color: v.$text-color;
         }
+
         .skill-name {
           font-size: 18px;
           font-weight: bold;
+
           &::before {
             content: attr(data-progress);
             position: absolute;
             right: 0px;
             color: v.$main-color;
             font-size: 14px;
-            border: 2px solid #fff;
+            border: 2px solid v.$even-bg;
             padding: 0px 4px;
             border-radius: 5px;
             transition: v.$trans;
           }
         }
+
         .skill-progress {
-          background-color: #fff;
+          background-color: v.$even-bg;
           height: 30px;
           width: 100%;
           margin-bottom: 15px;
           border-radius: 3px;
           overflow: hidden;
+
           .progress-bar {
             position: absolute;
             background-color: v.$main-color;
@@ -57,6 +66,7 @@
         }
       }
     }
+
     .image {
       img {
         width: 100%;

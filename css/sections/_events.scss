@@ -3,85 +3,105 @@
 
 #events {
   position: relative;
+
   .container {
     @include m.flex(center, null);
     flex-wrap: wrap;
+
     img {
       max-width: 450px;
     }
+
     .info {
       flex: 1;
+
       .time {
         @include m.flex(center, center);
         margin: 20px auto;
         gap: 10px;
         flex-wrap: wrap;
+
         .unit {
           border: 1px solid #d4d4d4;
           border-radius: 6px;
           text-align: center;
           width: 80px;
           transition: v.$trans;
+
           span {
             display: block;
             transition: v.$trans;
             padding: 10px;
+            color: v.$text-color;
+
             &:first-child {
               font-size: 35px;
               color: v.$main-color;
               font-weight: bold;
             }
+
             &:last-child {
               font-size: 13px;
               border-top: 1px solid #d4d4d4;
             }
           }
+
           &:hover,
           &:hover span:last-child {
             border-color: v.$main-color;
           }
         }
       }
+
       .title {
         text-align: center;
         margin: 40px 0 0;
         font-size: 30px;
       }
+
       .description {
         text-align: center;
         line-height: 1.7;
         font-size: 19px;
-        color: #777;
+        color: v.$para-color;
       }
     }
+
     .subscribe {
       width: 100%;
       margin-top: 50px;
+
       form {
         width: 600px;
         margin: 20px auto;
         padding: 30px 40px;
-        background-color: #f6f5f5;
+        background-color: v.$odd-bg;
         border-radius: 50px;
         display: flex;
         gap: 20px;
         position: relative;
+
         input[type="email"] {
           padding: 20px;
           border-radius: 50px;
           border: none;
           flex: 1;
           caret-color: v.$main-color;
+          background-color: v.$even-bg;
+
           &:focus {
             outline: none;
           }
+
           &::placeholder {
             transition: opacity v.$trans;
           }
+
           &:focus::placeholder {
             opacity: 0;
           }
         }
+
         input[type="submit"] {
           border-radius: 50px;
           border: none;
@@ -91,6 +111,7 @@
           padding: 20px;
           cursor: pointer;
           transition: v.$trans;
+
           &:hover {
             background-color: v.$alt-color;
           }
@@ -114,6 +135,7 @@
     flex-direction: column;
     border-radius: 0;
   }
+
   #events .container .subscribe form input[type="email"],
   #events .container .subscribe form input[type="submit"] {
     border-radius: 0;

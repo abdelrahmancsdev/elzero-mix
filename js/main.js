@@ -334,7 +334,7 @@ function calcScrollProgress() {
   let scrollY = window.scrollY;
   let calcHeight = document.documentElement.scrollHeight - window.innerHeight;
   let scrollValue = ((scrollY * 100) / calcHeight).toFixed(2);
-  scrollProgress.style.backgroundImage = `conic-gradient(var(--main-color) ${scrollValue}%, #d7d7d7 ${scrollValue}%)`;
+  scrollProgress.style.backgroundImage = `conic-gradient(var(--main-color) ${scrollValue}%, #d0d0d0 ${scrollValue}%)`;
   if (scrollY >= 200) {
     scrollTop.classList.add("show");
   } else {
@@ -383,16 +383,29 @@ colorsOptions.forEach(color => {
   }
 })
 // // Animations Option
-let toggleBtn = document.querySelector(".toggle-btn");
-toggleBtn.onclick = (e) => {
-  if (toggleBtn.classList.contains("toggle-off")) {
-    toggleBtn.classList.remove("toggle-off");
+let toggleAnimationsBtn = document.querySelector(".toggle-animations .toggle-btn");
+toggleAnimationsBtn.onclick = (e) => {
+  if (toggleAnimationsBtn.classList.contains("toggle-off")) {
+    toggleAnimationsBtn.classList.remove("toggle-off");
     document.body.classList.remove("no-animations");
     localStorage.animation_option = true;
   } else {
-    toggleBtn.classList.add("toggle-off");
+    toggleAnimationsBtn.classList.add("toggle-off");
     document.body.classList.add("no-animations");
     localStorage.animation_option = false;
+  }
+}
+//  // Darkmode Option
+let toggleDarkmodeBtn = document.querySelector(".toggle-darkmode .toggle-btn");
+toggleDarkmodeBtn.onclick = (e) => {
+  if (toggleDarkmodeBtn.classList.contains("toggle-off")) {
+    toggleDarkmodeBtn.classList.remove("toggle-off");
+    document.body.classList.add("darkmode");
+    localStorage.darkmode_option = true;
+  } else {
+    toggleDarkmodeBtn.classList.add("toggle-off");
+    document.body.classList.remove("darkmode");
+    localStorage.darkmode_option = false;
   }
 }
 // Get Options from LocalStorage
@@ -408,9 +421,14 @@ document.addEventListener("DOMContentLoaded", (e) => {
       color.classList.add("active");
     }
   });
-  // Animation Option
+  // Animations Option
   if (localStorage.animation_option == "false") {
-    toggleBtn.classList.add("toggle-off");
+    toggleAnimationsBtn.classList.add("toggle-off");
     document.body.classList.add("no-animations");
+  }
+  // DarkMode Option
+  if (localStorage.darkmode_option == "true") {
+    toggleDarkmodeBtn.classList.remove("toggle-off");
+    document.body.classList.add("darkmode");
   }
 })

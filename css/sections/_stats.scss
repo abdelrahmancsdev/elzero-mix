@@ -4,7 +4,7 @@
 
 #stats {
   position: relative;
-  background-color: transparent !important;
+
   &::before,
   &::after {
     content: "";
@@ -15,22 +15,25 @@
     top: 0px;
     z-index: -1;
   }
+
   &::before {
     background-image: url(../../imgs/stats.jpg);
     background-repeat: no-repeat;
     background-size: cover;
   }
+
   &::after {
-    background-color: #fff;
-    opacity: 0.95;
+    opacity: 1;
   }
+
   .container {
     @include m.grid(stretch, center);
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
+
     .stat {
       width: 100%;
-      background-color: #fff;
+      background-color: v.$even-bg;
       @include m.flex(center, center);
       flex-direction: column;
       padding: 30px;
@@ -38,6 +41,7 @@
       position: relative;
       opacity: 0.8;
       transition: v.$trans;
+
       &::before,
       &::after {
         content: "";
@@ -47,38 +51,46 @@
         transition: 1s;
         height: 0;
       }
+
       &::before {
         top: 0;
         right: 0;
       }
+
       &::after {
         left: 0;
         bottom: 0;
       }
+
       &:hover {
         opacity: 1;
+
         &::before,
         &::after {
           height: 100%;
         }
       }
+
       .icon {
         i {
           font-size: 40px;
           color: v.$text-color;
         }
       }
+
       .stat-num {
         font-size: 50px;
         font-weight: bold;
         line-height: 1;
         color: v.$text-color;
       }
+
       &:last-of-type {
         .stat-num::after {
           content: "K";
         }
       }
+
       .stat-name {
         color: v.$main-color;
         font-size: 24px;
