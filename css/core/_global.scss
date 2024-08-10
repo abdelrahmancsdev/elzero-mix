@@ -29,6 +29,7 @@ body {
   &.popup-active {
     overflow-y: hidden;
   }
+
   &[data-color=red] {
     --main-color: #F44336;
     --alt-color: #c1170a;
@@ -39,7 +40,7 @@ body {
     --main-color: #009688;
     --alt-color: #025e55;
     --light-color: #a5fff7;
-    
+
   }
 
   &[data-color=blue] {
@@ -58,6 +59,42 @@ body {
     --main-color: #673ab7;
     --alt-color: #400d9b;
     --light-color: #d3baff;
+  }
+
+  &.no-animations {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    div:not(.popup-box),
+    span,
+    p,
+    section,
+    button:not(.toggle-btn),
+    article,
+    a,
+    svg,
+    img,
+    ul,
+    ol,
+    li,
+    ::before,
+    ::after,
+    i,
+    form,
+    input,
+    textarea,
+    ::placeholder {
+      animation: none !important;
+      transition: none !important;
+    }
+
+    .main-heading:hover {
+      color: #000;
+    }
   }
 }
 

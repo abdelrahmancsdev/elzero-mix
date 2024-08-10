@@ -370,7 +370,7 @@ closeSettings.onclick = () => {
   settingsOverlay.classList.remove("active");
 };
 
-// // Settings Options
+// // Colors Options
 let colorsOptions = document.querySelectorAll(".colors-list li");
 colorsOptions.forEach(color => {
   color.onclick = (e) => {
@@ -382,15 +382,35 @@ colorsOptions.forEach(color => {
     document.body.dataset.color = e.target.dataset.color;
   }
 })
+// // Animations Option
+let toggleBtn = document.querySelector(".toggle-btn");
+toggleBtn.onclick = (e) => {
+  if (toggleBtn.classList.contains("toggle-off")) {
+    toggleBtn.classList.remove("toggle-off");
+    document.body.classList.remove("no-animations");
+    localStorage.animation_option = true;
+  } else {
+    toggleBtn.classList.add("toggle-off");
+    document.body.classList.add("no-animations");
+    localStorage.animation_option = false;
+  }
+}
+// Get Options from LocalStorage
 document.addEventListener("DOMContentLoaded", (e) => {
+  // Color Option
   localStorage.color_option ? document.body.dataset.color = localStorage.color_option : document.body.dataset.color = "blue";
   colorsOptions.forEach(color => {
-  if (localStorage.color_option) {
-    if (color.dataset.color === localStorage.color_option) {
+    if (localStorage.color_option) {
+      if (color.dataset.color === localStorage.color_option) {
+        color.classList.add("active");
+      }
+    } else if (color.dataset.color === "blue") {
       color.classList.add("active");
-    } 
-  } else if (color.dataset.color === "blue") {
-    color.classList.add("active");
-  }
+    }
   });
+  // Animation Option
+  if (localStorage.animation_option == "false") {
+    toggleBtn.classList.add("toggle-off");
+    document.body.classList.add("no-animations");
+  }
 })

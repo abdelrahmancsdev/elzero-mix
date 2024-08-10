@@ -67,11 +67,14 @@
 
       >li {
         background-color: #f0f0f0;
-        padding: 10px 10px 15px;
+        padding: 10px;
+        margin-top: 10px;
 
         h3 {
           text-align: center;
           color: #555;
+          line-height: 1;
+          margin-bottom: 15px;
         }
 
         .colors-list {
@@ -110,6 +113,44 @@
             &:hover,
             &.active {
               opacity: 1;
+            }
+          }
+        }
+
+        .toggle-animations {
+          @include m.flex(center, center);
+          gap: 10px;
+          color: #444;
+
+          .toggle-btn {
+            width: 52px;
+            height: 26px;
+            background-color: var(--main-color);
+            border-radius: 50px;
+            position: relative;
+            cursor: pointer;
+            transition: 0.3s ease;
+
+
+            &::after {
+              content: "";
+              width: 20px;
+              height: 20px;
+              background-color: #fff;
+              border-radius: 50%;
+              position: absolute;
+              left: 3px;
+              top: 3px;
+              transform: translateX(0px);
+              transition: 0.3s ease;
+            }
+
+            &.toggle-off {
+              background-color: #ccc;
+
+              &::after {
+                transform: translateX(26px);
+              }
             }
           }
         }

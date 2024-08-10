@@ -52,6 +52,37 @@ body[data-color=purple] {
   --alt-color: #400d9b;
   --light-color: #d3baff;
 }
+body.no-animations h1,
+body.no-animations h2,
+body.no-animations h3,
+body.no-animations h4,
+body.no-animations h5,
+body.no-animations h6,
+body.no-animations div:not(.popup-box),
+body.no-animations span,
+body.no-animations p,
+body.no-animations section,
+body.no-animations button:not(.toggle-btn),
+body.no-animations article,
+body.no-animations a,
+body.no-animations svg,
+body.no-animations img,
+body.no-animations ul,
+body.no-animations ol,
+body.no-animations li,
+body.no-animations ::before,
+body.no-animations ::after,
+body.no-animations i,
+body.no-animations form,
+body.no-animations input,
+body.no-animations textarea,
+body.no-animations ::placeholder {
+  animation: none !important;
+  transition: none !important;
+}
+body.no-animations .main-heading:hover {
+  color: #000;
+}
 
 ul {
   list-style-type: none;
@@ -371,11 +402,14 @@ section:not(#landing, #discount):nth-of-type(even) {
 }
 #settings .settings-options .options-list > li {
   background-color: #f0f0f0;
-  padding: 10px 10px 15px;
+  padding: 10px;
+  margin-top: 10px;
 }
 #settings .settings-options .options-list > li h3 {
   text-align: center;
   color: #555;
+  line-height: 1;
+  margin-bottom: 15px;
 }
 #settings .settings-options .options-list > li .colors-list {
   display: flex;
@@ -409,6 +443,40 @@ section:not(#landing, #discount):nth-of-type(even) {
 }
 #settings .settings-options .options-list > li .colors-list li:hover, #settings .settings-options .options-list > li .colors-list li.active {
   opacity: 1;
+}
+#settings .settings-options .options-list > li .toggle-animations {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #444;
+}
+#settings .settings-options .options-list > li .toggle-animations .toggle-btn {
+  width: 52px;
+  height: 26px;
+  background-color: var(--main-color);
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+#settings .settings-options .options-list > li .toggle-animations .toggle-btn::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  transform: translateX(0px);
+  transition: 0.3s ease;
+}
+#settings .settings-options .options-list > li .toggle-animations .toggle-btn.toggle-off {
+  background-color: #ccc;
+}
+#settings .settings-options .options-list > li .toggle-animations .toggle-btn.toggle-off::after {
+  transform: translateX(26px);
 }
 #settings .settings-overlay {
   position: fixed;
