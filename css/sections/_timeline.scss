@@ -151,7 +151,7 @@
         content: "";
         position: absolute;
         top: 16px;
-        right: calc(100% + 3px);
+        right: calc(100% + 2px);
         height: 0;
         width: 0;
         border: 7px solid transparent;
@@ -211,7 +211,7 @@
 
       .timeline-content::before {
         top: 24px;
-        left: calc(100% + 3px);
+        left: calc(100% + 2px);
         border-color: transparent;
         border-left-color: #fff;
       }
@@ -245,7 +245,7 @@
       .timeline-block:nth-child(even) .timeline-content::before {
         top: 24px;
         left: auto;
-        right: calc(100% + 3px);
+        right: calc(100% + 2px);
         border-color: transparent;
         border-right-color: #fff;
       }

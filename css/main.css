@@ -383,7 +383,7 @@ section:not(#landing, #discount):nth-of-type(even) {
   width: 200px;
   height: 100%;
   max-width: 100%;
-  background-color: #fff;
+  background-color: var(--even-bg);
   top: 0px;
   right: 0px;
   z-index: 999;
@@ -409,19 +409,23 @@ section:not(#landing, #discount):nth-of-type(even) {
 #settings .settings-options h2 {
   text-align: center;
   padding: 10px 0px;
+  color: var(--text-color);
   border-bottom: 1px solid var(--odd-bg);
 }
 #settings .settings-options .options-list {
   padding: 10px;
 }
 #settings .settings-options .options-list > li {
-  background-color: #f0f0f0;
+  background-color: var(--odd-bg);
   padding: 10px;
   margin-top: 10px;
 }
+#settings .settings-options .options-list > li:nth-last-child(n) {
+  margin-bottom: 10px;
+}
 #settings .settings-options .options-list > li h3 {
   text-align: center;
-  color: var(--para-color);
+  color: var(--text-color);
   line-height: 1;
   margin-bottom: 15px;
 }
@@ -464,7 +468,7 @@ section:not(#landing, #discount):nth-of-type(even) {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  color: #444;
+  color: var(--para-color);
 }
 #settings .settings-options .options-list > li .toggle-animations .toggle-btn,
 #settings .settings-options .options-list > li .toggle-darkmode .toggle-btn {
@@ -496,6 +500,24 @@ section:not(#landing, #discount):nth-of-type(even) {
 #settings .settings-options .options-list > li .toggle-animations .toggle-btn.toggle-off::after,
 #settings .settings-options .options-list > li .toggle-darkmode .toggle-btn.toggle-off::after {
   transform: translateX(26px);
+}
+#settings .settings-options .reset-option {
+  padding: 20px 10px;
+  border-top: 1px solid var(--odd-bg);
+}
+#settings .settings-options .reset-option .reset-btn {
+  text-align: center;
+  background-color: var(--main-color);
+  color: #fff;
+  padding: 10px 0;
+  font-weight: bold;
+  font-size: 20px;
+  width: 100%;
+  cursor: pointer;
+  transition: var(--transe);
+}
+#settings .settings-options .reset-option .reset-btn:hover {
+  background-color: var(--alt-color);
 }
 #settings .settings-overlay {
   position: fixed;
@@ -1514,7 +1536,7 @@ footer .container, #articles .container {
   content: "";
   position: absolute;
   top: 16px;
-  right: calc(100% + 3px);
+  right: calc(100% + 2px);
   height: 0;
   width: 0;
   border: 7px solid transparent;
@@ -1562,7 +1584,7 @@ footer .container, #articles .container {
   }
   #timeline .container .timeline-content::before {
     top: 24px;
-    left: calc(100% + 3px);
+    left: calc(100% + 2px);
     border-color: transparent;
     border-left-color: #fff;
   }
@@ -1587,7 +1609,7 @@ footer .container, #articles .container {
   #timeline .container .timeline-block:nth-child(even) .timeline-content::before {
     top: 24px;
     left: auto;
-    right: calc(100% + 3px);
+    right: calc(100% + 2px);
     border-color: transparent;
     border-right-color: #fff;
   }
@@ -1787,6 +1809,7 @@ footer .container, #articles .container {
   text-align: center;
   margin: 40px 0 0;
   font-size: 30px;
+  color: var(--text-color);
 }
 #events .container .info .description {
   text-align: center;
@@ -1927,6 +1950,7 @@ footer .container, #articles .container {
   margin: 30px 0;
   font-size: 25px;
   letter-spacing: -1px;
+  color: var(--text-color);
 }
 #pricing .container .plan svg {
   width: 80px;
@@ -2110,6 +2134,7 @@ footer .container, #articles .container {
   padding: var(--space);
 }
 #articles .container .post .content h3 {
+  color: var(--text-color);
   margin: 0;
 }
 #articles .container .post .content p {

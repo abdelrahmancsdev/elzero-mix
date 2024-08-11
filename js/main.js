@@ -408,6 +408,28 @@ toggleDarkmodeBtn.onclick = (e) => {
     localStorage.darkmode_option = false;
   }
 }
+// // Reset Option
+let resetBtn = document.querySelector(".reset-btn");
+resetBtn.onclick = () => {
+  // Colors Options
+  colorsOptions.forEach(color => {
+    if (color.dataset.color !== "blue") {
+      color.classList.remove("active");
+    } else {
+      color.classList.add("active");
+      document.body.dataset.color = "blue";
+      localStorage.color_option = "blue";
+    }
+  })
+  // Animations Option
+  toggleAnimationsBtn.classList.remove("toggle-off");
+  document.body.classList.remove("no-animations");
+  localStorage.animation_option = true;
+  // Darkmode Option
+  toggleDarkmodeBtn.classList.add("toggle-off");
+  document.body.classList.remove("darkmode");
+  localStorage.darkmode_option = false;
+}
 // Get Options from LocalStorage
 document.addEventListener("DOMContentLoaded", (e) => {
   // Color Option

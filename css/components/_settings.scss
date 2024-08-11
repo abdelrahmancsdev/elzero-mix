@@ -31,7 +31,7 @@
     width: 200px;
     height: 100%;
     max-width: 100%;
-    background-color: #fff;
+    background-color: v.$even-bg;
     top: 0px;
     right: 0px;
     z-index: 999;
@@ -60,6 +60,7 @@
     h2 {
       text-align: center;
       padding: 10px 0px;
+      color: v.$text-color;
       border-bottom: 1px solid v.$odd-bg;
     }
 
@@ -67,13 +68,17 @@
       padding: 10px;
 
       >li {
-        background-color: #f0f0f0;
+        background-color: v.$odd-bg;
         padding: 10px;
         margin-top: 10px;
 
+        &:nth-last-child(n) {
+          margin-bottom: 10px;
+        }
+
         h3 {
           text-align: center;
-          color: v.$para-color;
+          color: v.$text-color;
           line-height: 1;
           margin-bottom: 15px;
         }
@@ -122,7 +127,7 @@
         .toggle-darkmode {
           @include m.flex(center, center);
           gap: 10px;
-          color: #444;
+          color: v.$para-color;
 
           .toggle-btn {
             width: 52px;
@@ -154,7 +159,29 @@
                 transform: translateX(26px);
               }
             }
+
           }
+        }
+      }
+    }
+
+    .reset-option {
+      padding: 20px 10px;
+      border-top: 1px solid var(--odd-bg);
+
+      .reset-btn {
+        text-align: center;
+        background-color: var(--main-color);
+        color: #fff;
+        padding: 10px 0;
+        font-weight: bold;
+        font-size: 20px;
+        width: 100%;
+        cursor: pointer;
+        transition: v.$transe;
+
+        &:hover {
+          background-color: v.$alt-color;
         }
       }
     }
