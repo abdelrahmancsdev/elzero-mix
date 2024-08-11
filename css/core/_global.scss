@@ -137,6 +137,24 @@ img {
   max-width: 1200px;
 }
 
+section[data-view=inView] {
+  .main-heading {
+    color: #fff;
+    border-color: v.$main-color;
+  }
+
+  .main-heading::before {
+    animation: fill-left 0.5s linear both;
+    z-index: -1;
+  }
+
+  .main-heading::after {
+    animation: fill-right 0.5s linear both;
+    z-index: -1;
+  }
+
+}
+
 section:not(#landing, #discount) {
   padding: v.$sec-space 0px;
   position: relative;

@@ -120,6 +120,19 @@ img {
   max-width: 1200px;
 }
 
+section[data-view=inView] .main-heading {
+  color: #fff;
+  border-color: var(--main-color);
+}
+section[data-view=inView] .main-heading::before {
+  animation: fill-left 0.5s linear both;
+  z-index: -1;
+}
+section[data-view=inView] .main-heading::after {
+  animation: fill-right 0.5s linear both;
+  z-index: -1;
+}
+
 section:not(#landing, #discount) {
   padding: var(--sec-space) 0px;
   position: relative;
@@ -164,15 +177,15 @@ section:not(#landing, #discount):nth-of-type(even) {
   left: -30px;
   animation: back-right 0.5s linear both;
 }
-.main-heading:hover {
+.main-heading:hover, .main-heading[data-view=inView] {
   color: #fff;
   border-color: var(--main-color);
 }
-.main-heading:hover::before {
+.main-heading:hover::before, .main-heading[data-view=inView]::before {
   animation: fill-left 0.5s linear both;
   z-index: -1;
 }
-.main-heading:hover::after {
+.main-heading:hover::after, .main-heading[data-view=inView]::after {
   animation: fill-right 0.5s linear both;
   z-index: -1;
 }
@@ -264,12 +277,13 @@ section:not(#landing, #discount):nth-of-type(even) {
 .dots {
   height: 150px;
   width: 150px;
-  -webkit-mask: url(../../imgs/dots.svg) no-repeat center;
-  mask: url(../../imgs/dots.svg) no-repeat center;
+  -webkit-mask: url(../imgs/dots.svg) no-repeat center;
+  mask: url(../imgs/dots.svg) no-repeat center;
   -webkit-mask-size: contain;
   mask-size: contain;
   position: absolute;
-  background-color: var(--main-color);
+  background: url(../imgs/dots.svg) no-repeat center var(--main-color);
+  background-blend-mode: color-dodge;
 }
 .dots.dots-up {
   top: 150px;
@@ -1328,6 +1342,7 @@ footer .container, #articles .container {
 }
 #stats {
   position: relative;
+  background-color: transparent !important;
 }
 #stats::before, #stats::after {
   content: "";
@@ -1339,12 +1354,13 @@ footer .container, #articles .container {
   z-index: -1;
 }
 #stats::before {
-  background-image: url(../../imgs/stats.jpg);
+  background-image: url(../imgs/stats.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
 #stats::after {
-  opacity: 1;
+  background-color: var(--even-bg);
+  opacity: 0.9;
 }
 #stats .container {
   display: grid;
@@ -2151,7 +2167,7 @@ footer .container, #articles .container {
 }
 #articles .container .post .info a {
   color: var(--main-color);
-  font-weight: 500;
+  font-weight: bold;
 }
 #articles .container .post .info i {
   color: var(--main-color);

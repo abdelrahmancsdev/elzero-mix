@@ -3,16 +3,20 @@
 .dots {
   height: 150px;
   width: 150px;
-  -webkit-mask: url(../../imgs/dots.svg) no-repeat center;
-  mask: url(../../imgs/dots.svg) no-repeat center;
+  -webkit-mask: url(../imgs/dots.svg) no-repeat center;
+  mask: url(../imgs/dots.svg) no-repeat center;
   -webkit-mask-size: contain;
   mask-size: contain;
   position: absolute;
-  background-color: v.$main-color;
+  background: url(../imgs/dots.svg) no-repeat center var(--main-color);
+  background-blend-mode: color-dodge;
+
+
   &.dots-up {
     top: 150px;
     right: 5px;
   }
+
   &.dots-down {
     bottom: 150px;
     left: 5px;
@@ -23,9 +27,11 @@
   .dots {
     width: 75px;
     height: 75px;
+
     &.dots-up {
       top: 50px;
     }
+
     &.dots-down {
       bottom: 50px;
     }

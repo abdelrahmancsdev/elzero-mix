@@ -37,17 +37,20 @@
     animation: back-right 0.5s linear both;
   }
 
-  &:hover {
+  &:hover,
+  &[data-view=inView] {
     color: #fff;
     border-color: v.$main-color;
   }
 
-  &:hover::before {
+  &:hover::before,
+  &[data-view=inView]::before {
     animation: fill-left 0.5s linear both;
     z-index: -1;
   }
 
-  &:hover::after {
+  &:hover::after,
+  &[data-view=inView]::after {
     animation: fill-right 0.5s linear both;
     z-index: -1;
   }

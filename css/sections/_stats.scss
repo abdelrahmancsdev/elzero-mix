@@ -4,6 +4,7 @@
 
 #stats {
   position: relative;
+  background-color: transparent !important;
 
   &::before,
   &::after {
@@ -17,13 +18,14 @@
   }
 
   &::before {
-    background-image: url(../../imgs/stats.jpg);
+    background-image: url(../imgs/stats.jpg);
     background-repeat: no-repeat;
     background-size: cover;
   }
 
   &::after {
-    opacity: 1;
+    background-color: v.$even-bg;
+    opacity: 0.90;
   }
 
   .container {
