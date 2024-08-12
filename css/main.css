@@ -85,6 +85,12 @@ body.no-animations ::placeholder {
 body.no-animations .main-heading:hover {
   color: #000;
 }
+body .white-logo {
+  display: block !important;
+}
+body .black-logo {
+  display: none !important;
+}
 body.darkmode {
   --text-color: #f1f1f1;
   --para-color: #888;
@@ -92,7 +98,13 @@ body.darkmode {
   --even-bg: #000;
   --light-bg: #111;
 }
-body.darkmode #hiw .info .box::before {
+body.darkmode .black-logo {
+  display: block !important;
+}
+body.darkmode .white-logo {
+  display: none !important;
+}
+body #hiw .info .box::before {
   background-color: #252525;
 }
 
@@ -566,10 +578,20 @@ header .container {
   position: relative;
   background-color: var(--even-bg);
 }
-header .container .logo h1 a {
+header .container .brand h1 a {
   color: var(--main-color);
-  font-size: 30px;
-  padding: 0px var(--space);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 40px;
+  font-weight: 500;
+  height: 70px;
+}
+header .container .brand h1 a .logo {
+  display: block;
+  width: 35px;
+  background-color: var(--main-color);
 }
 header .container nav .nav-menu {
   display: flex;
@@ -2295,7 +2317,7 @@ footer .container, #articles .container {
   }
 }
 footer {
-  background-color: #191919;
+  background-color: #222;
   padding: 70px 0 0;
 }
 @media (max-width: 767px) {
@@ -2305,6 +2327,23 @@ footer {
 }
 footer .container .box {
   width: 100%;
+}
+footer .container .box .footer-logo {
+  color: var(--main-color);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  font-size: 80px;
+}
+@media (max-width: 767px) {
+  footer .container .box .footer-logo {
+    justify-content: center;
+  }
+}
+footer .container .box .footer-logo img {
+  width: 80px;
+  background-color: var(--main-color);
 }
 footer .container .box h3 {
   color: #fff;

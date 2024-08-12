@@ -461,7 +461,7 @@ const observer = new IntersectionObserver(sections => {
     const intersecting = section.isIntersecting;
     section.target.dataset.view = intersecting ? "inView" : "outView";
   });
-}, { rootMargin: innerHeight >= 1000 ? "0px 0px -700px" : innerWidth > 500 ? "0px 0px -300px" : "0px 0px -500px" })
+}, { rootMargin: innerHeight >= 1000 ? "0px 0px -700px" : innerWidth > 700 ? "0px 0px -300px" : "0px 0px -500px" })
 let sections = document.querySelectorAll("section");
 sections.forEach(section => {
   observer.observe(section);

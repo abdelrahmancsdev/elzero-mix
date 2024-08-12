@@ -99,6 +99,15 @@ body {
     }
   }
 
+  .white-logo {
+    display: block !important;
+  }
+
+  .black-logo {
+    display: none !important;
+  }
+
+
   &.darkmode {
     --text-color: #f1f1f1;
     --para-color: #888;
@@ -106,10 +115,17 @@ body {
     --even-bg: #000;
     --light-bg: #111;
 
-
-    #hiw .info .box::before {
-      background-color: #252525;
+    .black-logo {
+      display: block !important;
     }
+
+    .white-logo {
+      display: none !important;
+    }
+  }
+
+  #hiw .info .box::before {
+    background-color: #252525;
   }
 }
 

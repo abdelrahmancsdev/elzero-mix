@@ -3,31 +3,57 @@
 @use "../abstracts/placeholders";
 
 footer {
-  background-color: #191919;
+  background-color: #222;
   padding: 70px 0 0;
+
   @media (max-width: 767px) {
     & {
       text-align: center;
     }
   }
+
   .container {
     @extend %grid4;
+
     .box {
       width: 100%;
-      h3 {
-        color: #fff;
-        font-size: 50px;
-        margin: 0 0 20px;
-      }
-      .social {
-        display: flex;
+
+      .footer-logo {
+        color: var(--main-color);
+        @include m.flex(center, flex-start);
+        gap: 10px;
+        font-size: 80px;
+
         @media (max-width: 767px) {
           & {
             justify-content: center;
           }
         }
+
+        img {
+          width: 80px;
+          background-color: v.$main-color;
+        }
+      }
+
+      h3 {
+        color: #fff;
+        font-size: 50px;
+        margin: 0 0 20px;
+      }
+
+      .social {
+        display: flex;
+
+        @media (max-width: 767px) {
+          & {
+            justify-content: center;
+          }
+        }
+
         li {
           margin-right: 10px;
+
           a {
             background-color: #313131;
             color: #b9b9b9;
@@ -38,45 +64,57 @@ footer {
             height: 50px;
             font-size: 20px;
             transition: v.$trans;
+
             &:hover {
               color: #fff;
             }
+
             &.facebook:hover {
               background-color: #1877f2;
             }
+
             &.twitter:hover {
               background-color: #1da1f2;
             }
+
             &.youtube:hover {
               background-color: #ff0000;
             }
+
             &.linkedin:hover {
               background-color: #0a66c2;
             }
           }
         }
       }
+
       .text {
         line-height: 2;
         color: #b9b9b9;
         margin: 20px 0px;
       }
+
       .links {
         li {
           padding: 15px 0;
           transition: v.$trans;
+
           &:not(:last-child) {
             border-bottom: 1px solid #444;
           }
+
           &:hover {
             padding-left: 10px;
+
             a {
               color: #fff;
             }
           }
+
           a {
             color: #b9b9b9;
             transition: v.$trans;
+
             &::before {
               font-family: "Font Awesome 6 Free";
               content: "\F101";
@@ -87,25 +125,30 @@ footer {
           }
         }
       }
+
       .line {
         @include m.flex(center, null);
         color: #b9b9b9;
         margin-bottom: 30px;
+
         &:hover {
           i {
             color: v.$alt-color;
           }
         }
+
         @media (max-width: 767px) {
           & {
             flex-direction: column;
           }
         }
+
         i {
           font-size: 25px;
           color: v.$main-color;
           margin-right: 10px;
           transition: v.$trans;
+
           @media (max-width: 767px) {
             & {
               margin-right: 0;
@@ -113,15 +156,18 @@ footer {
             }
           }
         }
+
         .info {
           line-height: 1.7;
           flex: 1;
+
           span {
             display: block;
           }
         }
       }
     }
+
     .footer-gallery {
       img {
         width: 78px;
@@ -130,21 +176,25 @@ footer {
       }
     }
   }
+
   .copyright {
     padding: 25px 0;
     text-align: center;
     color: #fff;
     margin: 50px 0 0;
     border-top: 1px solid #444;
+
     .emoji {
       display: inline-block;
       color: #ff0000;
       line-height: 1.6;
       animation: beat linear 0.5s infinite alternate;
     }
+
     .developer {
       color: v.$main-color;
       transition: v.$trans;
+
       &:hover {
         color: v.$alt-color;
         text-decoration: underline;

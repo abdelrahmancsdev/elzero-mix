@@ -15,12 +15,23 @@ header {
     position: relative;
     background-color: v.$even-bg;
 
-    .logo {
+
+
+    .brand {
       h1 {
         a {
-          color: v.$main-color;
-          font-size: 30px;
-          padding: 0px v.$space;
+          color: var(--main-color);
+          @include m.flex(center, center);
+          gap: 10px;
+          font-size: 40px;
+          font-weight: 500;
+          height: 70px;
+
+          .logo {
+            display: block;
+            width: 35px;
+            background-color: v.$main-color;
+          }
         }
       }
     }
