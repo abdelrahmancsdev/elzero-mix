@@ -36,7 +36,8 @@
           width: 0;
           height: 0;
           transform: translate(-50%, -50%);
-          background-color: #dfdfdf;
+          background-color: v.$light-bg;
+          filter: brightness(0.9);
           z-index: -1;
           transition: v.$trans;
         }

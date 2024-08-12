@@ -2,6 +2,7 @@
 let subMenu = document.querySelector(".sub-menu");
 let megaMenu = document.querySelector(".mega-menu");
 let menuBar = document.querySelector(".menu-bar");
+let megaOverlay = document.querySelector(".mega-overlay");
 let navLinks = document.querySelectorAll("nav a:not(.sub-menu)");
 let noneLinks = document.querySelectorAll("a[href='#']:not(.sub-menu)");
 let skillsSection = document.querySelector("#skills");
@@ -15,12 +16,16 @@ function toggleActive() {
   subMenu.classList.toggle("active");
   megaMenu.classList.toggle("active");
   menuBar.classList.toggle("active");
+  megaOverlay.classList.toggle("active");
 }
 subMenu.onclick = (e) => {
   e.preventDefault();
   toggleActive();
 };
 menuBar.onclick = (e) => {
+  toggleActive();
+};
+megaOverlay.onclick = (e) => {
   toggleActive();
 };
 navLinks.forEach((link) => {
@@ -118,6 +123,13 @@ function openPopup(popElement, type) {
     document.body.classList.remove("popup-active");
     window.removeEventListener("keydown", keyEvents);
   };
+  popupOverlay.onclick = () => {
+    popup.remove();
+    popupOverlay.remove();
+    document.body.classList.remove("popup-active");
+    window.removeEventListener("keydown", keyEvents);
+  };
+
   popupContent.appendChild(popElement);
   let nextBtn;
   let prevBtn;

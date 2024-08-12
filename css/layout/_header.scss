@@ -22,7 +22,7 @@ header {
         a {
           color: var(--main-color);
           @include m.flex(center, center);
-          gap: 10px;
+          gap: 5px;
           font-size: 40px;
           font-weight: 500;
           height: 70px;
@@ -139,6 +139,12 @@ header {
         opacity: 0;
         border-bottom: 3px solid v.$main-color;
 
+        @media (max-width: 767px) {
+          & {
+            z-index: 999;
+          }
+        }
+
         &.active {
           transform: translateY(0px) translateX(-50%);
           opacity: 1;
@@ -235,13 +241,31 @@ header {
           display: flex;
         }
 
+        .mega-overlay {
+          position: fixed;
+          height: 100%;
+          width: 100%;
+          top: 70px;
+          left: 0px;
+          background-color: rgb(0 0 0 / 20%);
+          z-index: 999;
+          visibility: hidden;
+          opacity: 0;
+          transition: v.$trans;
+
+          &.active {
+            visibility: visible;
+            opacity: 1;
+          }
+        }
+
         .mega-menu {
           bottom: 0px;
           grid-template-columns: 1fr;
           transform: translateY(0px) translateX(100%);
-          min-width: 50%;
+          min-width: 30%;
           max-width: 100%;
-          width: 300px;
+          width: 250px;
           gap: 0px;
           left: auto;
           right: 0px;

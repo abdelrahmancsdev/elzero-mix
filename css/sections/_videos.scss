@@ -83,7 +83,7 @@
 
           &:hover,
           &.active {
-            background-color: #fafafa;
+            background-color: v.$light-bg;
             color: v.$main-color;
           }
 
@@ -97,7 +97,7 @@
     }
 
     .preview {
-      background-color: #e2e2e2;
+      background-color: v.$light-bg;
       padding: 10px;
       display: flex;
       flex-direction: column;
